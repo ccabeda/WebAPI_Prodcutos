@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Proyecto_Final.Models;
 using Proyecto_Final.Models.APIResponse;
 using WebApi_Proyecto_Final.DTOs.UsuarioDto;
 using WebApi_Proyecto_Final.Services.IService;
