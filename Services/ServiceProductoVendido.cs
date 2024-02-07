@@ -26,11 +26,11 @@ namespace Proyecto_Final.Services
             _apiResponse = apiResponse;
         }
 
-        public APIResponse ObtenerProductoVendido(int id)
+        public async Task<APIResponse> ObtenerProductoVendido(int id)
         {
             try
             {
-                var productoVendido = _repository.ObtenerPorId(id);//busco en la db con la id
+                var productoVendido = await _repository.ObtenerPorId(id);//busco en la db con la id
                 if (productoVendido == null)
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
@@ -49,11 +49,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ListarProductosVendidos()
+        public async Task<APIResponse> ListarProductosVendidos()
         {
             try
             {
-                var lista_productosVendidos = _repository.ObtenerTodos();
+                var lista_productosVendidos = await _repository.ObtenerTodos();
                 if (lista_productosVendidos == null)
                 {
                     _logger.LogError("No hay ningún producto vendido registrado actualmente. Vuelve a intentarlo mas tarde.");
@@ -72,7 +72,7 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse CrearProductoVendido(ProductoVendidoCreateDto productoVendidoCreate)
+        public async Task<APIResponse> CrearProductoVendido(ProductoVendidoCreateDto productoVendidoCreate)
         {
             try
             {
@@ -82,14 +82,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idProducto = _repositoryProducto.ObtenerPorId(productoVendidoCreate.IdProducto);
+                var existe_idProducto = await _repositoryProducto.ObtenerPorId(productoVendidoCreate.IdProducto);
                 if (existe_idProducto == null)
                 {
                     _logger.LogError("No existe producto con el idProdcuto enviado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idVenta = _repositoryVenta.ObtenerPorId(productoVendidoCreate.IdVenta);
+                var existe_idVenta = await _repositoryVenta.ObtenerPorId(productoVendidoCreate.IdVenta);
                 if (existe_idVenta == null)
                 {
                     _logger.LogError("No existe venta realizada con el idVenta enviado.");
@@ -97,7 +97,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 var productoVendido = _mapper.Map<ProductoVendido>(productoVendidoCreate);
-                _repository.Crear(productoVendido);
+                await _repository.Crear(productoVendido);
                 _logger.LogInformation("!ProductoVendido creado con exito¡");
                 _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(productoVendido);
                 return _apiResponse;
@@ -111,11 +111,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ModificarProductoVendido(int id, ProductoVendidoUpdateDto productoVendidoUpdate)
+        public async Task<APIResponse> ModificarProductoVendido(int id, ProductoVendidoUpdateDto productoVendidoUpdate)
         {
             try
             {
-                var existeProductoVendido = _repository.ObtenerPorId(id);
+                var existeProductoVendido = await _repository.ObtenerPorId(id);
                 if (existeProductoVendido == null)
                 {
                     _logger.LogError("Error, el producto vendido que intenta modificar no existe.");
@@ -123,14 +123,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idProducto = _repositoryProducto.ObtenerPorId(productoVendidoUpdate.IdProducto);
+                var existe_idProducto = await _repositoryProducto.ObtenerPorId(productoVendidoUpdate.IdProducto);
                 if (existe_idProducto == null)
                 {
                     _logger.LogError("No existe producto con el idProdcuto enviado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idVenta = _repositoryVenta.ObtenerPorId(productoVendidoUpdate.IdVenta);
+                var existe_idVenta = await _repositoryVenta.ObtenerPorId(productoVendidoUpdate.IdVenta);
                 if (existe_idVenta == null)
                 {
                     _logger.LogError("No existe venta realizada con el idVenta enviado.");
@@ -138,7 +138,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 _mapper.Map(productoVendidoUpdate, existeProductoVendido);
-                _repository.Actualizar(existeProductoVendido);
+                await _repository.Actualizar(existeProductoVendido);
                 _logger.LogInformation("!El producto vendido de id " + id + " fue actualizado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(existeProductoVendido);
                 return _apiResponse;
@@ -152,18 +152,18 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse EliminarProductoVendido(int id)
+        public async Task<APIResponse> EliminarProductoVendido(int id)
         {
             try
             {
-                var productoVendido = _repository.ObtenerPorId(id);
+                var productoVendido = await _repository.ObtenerPorId(id);
                 if (productoVendido == null)
                 {
                     _logger.LogError("El id ingresado no esta registrado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                _repository.Eliminar(productoVendido);
+                await _repository.Eliminar(productoVendido);
                 _logger.LogInformation("¡Producto vendido eliminado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(productoVendido);
                 return _apiResponse;

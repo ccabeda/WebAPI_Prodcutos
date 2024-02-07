@@ -5,10 +5,10 @@ namespace WebApi_Proyecto_Final.Services.IService
 {
     public interface IServiceProducto
     {
-        APIResponse ObtenerProducto(int id);
-        APIResponse ListarProductos();
-        APIResponse CrearProducto(ProductoCreateDto productoCreate);
-        APIResponse ModificarProducto(int id, ProductoUpdateDto productoUpdate);
-        APIResponse EliminarProducto(int id);
+        Task<APIResponse> ObtenerProducto(int id);
+        Task<APIResponse> ListarProductos();
+        Task<APIResponse> CrearProducto(ProductoCreateDto productoCreate);
+        Task<APIResponse> ModificarProducto(int id, ProductoUpdateDto productoUpdate);
+        Task<APIResponse> EliminarProducto(int id);
     }
 }

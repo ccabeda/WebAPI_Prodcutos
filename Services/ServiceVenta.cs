@@ -27,11 +27,11 @@ namespace Proyecto_Final.Services
             _apiResponse = apiResponse;
         }
 
-        public APIResponse ObtenerVenta(int id)
+        public async Task<APIResponse> ObtenerVenta(int id)
         {
             try
             {
-                var venta = _repository.ObtenerPorId(id); //busco en la db con la id
+                var venta = await _repository.ObtenerPorId(id); //busco en la db con la id
                 if (venta == null)
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
@@ -50,11 +50,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ListarVentas()
+        public async Task<APIResponse> ListarVentas()
         {
             try
             {
-                var lista_Ventas = _repository.ObtenerTodos(); //traigo la lista de usuarios
+                var lista_Ventas = await _repository.ObtenerTodos(); //traigo la lista de usuarios
                 if (lista_Ventas == null)
                 {
                     _logger.LogError("No hay ningúna venta registrada actualmente. Vuelve a intentarlo mas tarde.");
@@ -73,7 +73,7 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse CrearVenta(VentaCreateDto ventaCreate)
+        public async Task<APIResponse> CrearVenta(VentaCreateDto ventaCreate)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idUsuario = _repositoryUsuario.ObtenerPorId(ventaCreate.IdUsuario);
+                var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(ventaCreate.IdUsuario);
                 if (existe_idUsuario == null)
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
@@ -91,7 +91,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 var venta = _mapper.Map<Venta>(ventaCreate);
-                _repository.Crear(venta);
+                await _repository.Crear(venta);
                 _logger.LogError("!Venta creada con exito¡");
                 _apiResponse.Resultado = _mapper.Map<VentaDto>(venta);
                 return _apiResponse;
@@ -105,11 +105,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ModificarVenta(int id, VentaUpdateDto ventaUpdate)
+        public async Task<APIResponse> ModificarVenta(int id, VentaUpdateDto ventaUpdate)
         {
             try
             {
-                var existeVenta = _repository.ObtenerPorId(id); //verifico que el id ingresado este registrado en la db
+                var existeVenta = await _repository.ObtenerPorId(id); //verifico que el id ingresado este registrado en la db
                 if (existeVenta == null)
                 {
                     _logger.LogError("Error, la venta que intenta modificar no existe.");
@@ -117,7 +117,7 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idUsuario = _repositoryUsuario.ObtenerPorId(ventaUpdate.IdUsuario);
+                var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(ventaUpdate.IdUsuario);
                 if (existe_idUsuario == null)
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
@@ -125,7 +125,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 _mapper.Map(ventaUpdate, existeVenta);
-                _repository.Actualizar(existeVenta); //guardo cambios
+                await _repository.Actualizar(existeVenta); //guardo cambios
                 _logger.LogInformation("!La venta de id " + id + " fue actualizado con exito!");
                 _apiResponse.Resultado = _mapper.Map<VentaDto>(existeVenta);
                 return _apiResponse;
@@ -139,18 +139,18 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse EliminarVenta(int id)
+        public async Task<APIResponse> EliminarVenta(int id)
         {
             try
             {
-                var venta = _repository.ObtenerPorId(id);
+                var venta = await _repository.ObtenerPorId(id);
                 if (venta == null)
                 {
                     _logger.LogError("El id ingresado no esta registrado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var lista_productos_vendidos = _repositoryProductoVendido.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa,
+                var lista_productos_vendidos = await _repositoryProductoVendido.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa,
                                                                                    //que seria llamando al repository de productos vendidos en el service de venta
                 foreach (var i in lista_productos_vendidos)
                 {
@@ -162,7 +162,7 @@ namespace Proyecto_Final.Services
                         return _apiResponse;
                     }
                 }
-                _repository.Eliminar(venta);
+                await _repository.Eliminar(venta);
                 _logger.LogInformation("¡Venta eliminada con exito!");
                 _apiResponse.Resultado = _mapper.Map<VentaDto>(venta);
                 return _apiResponse;

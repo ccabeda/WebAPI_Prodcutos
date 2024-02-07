@@ -13,39 +13,37 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public void Actualizar(Venta venta)
+        public async Task Actualizar(Venta venta)
         {
             _context.Update(venta);
-            Guardar();
+            await Guardar();
         }
 
-        public void Crear(Venta venta)
+        public async Task Crear(Venta venta)
         {
-            _context.Venta.Add(venta);
-            Guardar();
+            await _context.Venta.AddAsync(venta);
+            await Guardar();
         }
 
-        public void Eliminar(Venta venta)
+        public async Task Eliminar(Venta venta)
         {
             _context.Venta.Remove(venta);
-            _context.SaveChanges();
+            await Guardar();
         }
 
-        public void Guardar()
+        public async Task Guardar()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Venta ObtenerPorId(int id)
+        public async Task<Venta> ObtenerPorId(int id)
         {
-            var venta = _context.Venta.Include(v => v.ProductoVendidos).FirstOrDefault(v => v.Id == id);
-            return venta;
+            return await _context.Venta.Include(v => v.ProductoVendidos).FirstOrDefaultAsync(v => v.Id == id);
         }
 
-        public List<Venta> ObtenerTodos()
+        public async Task<List<Venta>> ObtenerTodos()
         {
-            var lista_ventas = _context.Venta.Include(v => v.ProductoVendidos).ToList();
-            return lista_ventas;
+            return await _context.Venta.Include(v => v.ProductoVendidos).ToListAsync();
         }
     }
 }

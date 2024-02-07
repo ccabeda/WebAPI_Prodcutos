@@ -26,11 +26,11 @@ namespace Proyecto_Final.Services
             _apiResponse = apiResponse;
         }
 
-        public APIResponse ObtenerUsuario(int id)
+        public async Task<APIResponse> ObtenerUsuario(int id)
         {
             try
             {
-                var usuario = _repository.ObtenerPorId(id); //busco en la db con la id
+                var usuario = await _repository.ObtenerPorId(id); //busco en la db con la id
                 if (usuario == null)
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
@@ -49,11 +49,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ListarUsuarios()
+        public async Task<APIResponse> ListarUsuarios()
         {
             try
             {
-                var lista_usuarios = _repository.ObtenerTodos(); //traigo la lista de usuarios
+                var lista_usuarios = await _repository.ObtenerTodos(); //traigo la lista de usuarios
                 if (lista_usuarios == null)
                 {
                     _logger.LogError("No hay ningún usuario registrado actualmente. Vuelve a intentarlo mas tarde.");
@@ -72,7 +72,7 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse CrearUsuario(UsuarioCreateDto usuarioCreate)
+        public async Task<APIResponse> CrearUsuario(UsuarioCreateDto usuarioCreate)
         {
             try
             {
@@ -82,14 +82,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_usuario = _repository.ObtenerPorNombre(usuarioCreate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
+                var existe_usuario = await _repository.ObtenerPorNombre(usuarioCreate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
                 if (existe_usuario != null)
                 {
                     _logger.LogError("El nombre de usuario " + usuarioCreate.NombreUsuario + " ya existe. Utilize otro.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_mail = _repository.ObtenerPorMail(usuarioCreate.Mail);//si ya existe ese mail no deja crear
+                var existe_mail = await _repository.ObtenerPorMail(usuarioCreate.Mail);//si ya existe ese mail no deja crear
                 if (existe_mail != null)
                 {
                     _logger.LogError("El mail " + usuarioCreate.Mail + " ya se encuentra registrado.");
@@ -97,7 +97,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 var usuario = _mapper.Map<Usuario>(usuarioCreate);
-                _repository.Crear(usuario);
+                await _repository.Crear(usuario);
                 _logger.LogError("!Usuario creado con exito¡");
                 _apiResponse.Resultado = _mapper.Map<UsuarioDto>(usuario);
                 return _apiResponse;
@@ -111,11 +111,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ModificarUsuario(int id, UsuarioUpdateDto usuarioUpdate)
+        public async Task<APIResponse> ModificarUsuario(int id, UsuarioUpdateDto usuarioUpdate)
         {
             try
             {
-                var existeUsuario = _repository.ObtenerPorId(id); //verifico que el id ingresado este registrado en la db
+                var existeUsuario = await _repository.ObtenerPorId(id); //verifico que el id ingresado este registrado en la db
                 if (existeUsuario == null)
                 {
                     _logger.LogError("Error, el usuario que intenta modificar no existe.");
@@ -123,14 +123,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var nombre_ya_registrado = _repository.ObtenerPorNombre(usuarioUpdate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
+                var nombre_ya_registrado = await _repository.ObtenerPorNombre(usuarioUpdate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
                 if (nombre_ya_registrado != null && nombre_ya_registrado.Id != usuarioUpdate.Id)
                 {
                     _logger.LogError("El nombre de usuario " + usuarioUpdate.NombreUsuario + " ya existe. Utilize otro.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var mail_ya_registrado = _repository.ObtenerPorMail(usuarioUpdate.Mail); //si ya existe ese mail no deja crear
+                var mail_ya_registrado = await _repository.ObtenerPorMail(usuarioUpdate.Mail); //si ya existe ese mail no deja crear
                 if (mail_ya_registrado != null && mail_ya_registrado.Id != usuarioUpdate.Id)
                 {
                     _logger.LogError("El mail " + usuarioUpdate.Mail + " ya se encuentra registrado.");
@@ -138,7 +138,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 _mapper.Map(usuarioUpdate, existeUsuario);
-                _repository.Actualizar(existeUsuario);
+                await _repository.Actualizar(existeUsuario);
                 Console.WriteLine("!El usuario de id " + id + " fue actualizado con exito!");
                 _apiResponse.Resultado = _mapper.Map<UsuarioDto>(existeUsuario);
                 return _apiResponse;
@@ -152,11 +152,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse EliminarUsuario(int id)
+        public async Task<APIResponse> EliminarUsuario(int id)
         {
             try
             {
-                var usuario = _repository.ObtenerPorId(id);
+                var usuario = await _repository.ObtenerPorId(id);
                 if (usuario == null) //verifico que haya un usuario con ese id
                 {
                     _logger.LogError("Error al intentar eliminar el usuario.");
@@ -164,7 +164,7 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var lista_produtos = _repositoryProducto.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de producto
+                var lista_produtos = await _repositoryProducto.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de producto
                                                                               //en el service de usuario
                 foreach (var i in lista_produtos)
                 {
@@ -176,7 +176,7 @@ namespace Proyecto_Final.Services
                         return _apiResponse;
                     }
                 }
-                var lista_ventas = _repositoryVenta.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de venta
+                var lista_ventas = await _repositoryVenta.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de venta
                                                                  //en el service de venta
                 foreach (var i in lista_ventas)
                 {
@@ -188,7 +188,7 @@ namespace Proyecto_Final.Services
                         return _apiResponse;
                     }
                 }
-                _repository.Eliminar(usuario);
+                await _repository.Eliminar(usuario);
                 _logger.LogInformation("¡Usuario eliminado con exito!");
                 _apiResponse.Resultado = _mapper.Map<UsuarioDto>(usuario);
                 return _apiResponse;

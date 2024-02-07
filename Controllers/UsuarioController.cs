@@ -17,33 +17,33 @@ namespace WebApi_Proyecto_Final.Controllers
         }
 
         [HttpGet] //prueba de un endpoint get. Aun no deben hacerse
-        public APIResponse GetUsuarios()
+        public async Task<APIResponse> GetUsuarios()
         {
-            return _service.ListarUsuarios();
+            return await _service.ListarUsuarios();
         }
 
         [HttpGet(("{id}"), Name = "GetUsuariobyId")]
-        public APIResponse GetUsuario(int id)
+        public async Task<APIResponse> GetUsuario(int id)
         {
-            return _service.ObtenerUsuario(id);
+            return await _service.ObtenerUsuario(id);
         }
 
         [HttpPost]
-        public APIResponse CreateUsuario(UsuarioCreateDto usuarioCreate)
+        public async Task<APIResponse> CreateUsuario(UsuarioCreateDto usuarioCreate)
         {
-            return _service.CrearUsuario(usuarioCreate);
+            return await _service.CrearUsuario(usuarioCreate);
         }
 
         [HttpPut]
-        public APIResponse UpdateUsuario(int id, UsuarioUpdateDto usuarioUpdate)
+        public async Task<APIResponse> UpdateUsuario(int id, UsuarioUpdateDto usuarioUpdate)
         {
-            return _service.ModificarUsuario(id, usuarioUpdate);
+            return await _service.ModificarUsuario(id, usuarioUpdate);
         }
 
         [HttpDelete]
-        public APIResponse DeleteUsuario(int id)
+        public async Task<APIResponse> DeleteUsuario(int id)
         {
-            return _service.EliminarUsuario(id);
+            return await _service.EliminarUsuario(id);
         }
     }
 }

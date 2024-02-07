@@ -1,4 +1,5 @@
-﻿using Proyecto_Final.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto_Final.Database;
 using Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Repository.IRepository;
 
@@ -12,39 +13,37 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public void Actualizar(ProductoVendido productoVendido)
+        public async Task Actualizar(ProductoVendido productoVendido)
         {
             _context.Update(productoVendido);
-            Guardar();
+            await Guardar();
         }
 
-        public void Crear(ProductoVendido productoVendido)
+        public async Task Crear(ProductoVendido productoVendido)
         {
-            _context.ProductoVendidos.Add(productoVendido);
-            Guardar();
+            await _context.ProductoVendidos.AddAsync(productoVendido);
+            await Guardar();
         }
 
-        public void Eliminar(ProductoVendido productoVendido)
+        public async Task Eliminar(ProductoVendido productoVendido)
         {
             _context.ProductoVendidos.Remove(productoVendido);
-            _context.SaveChanges();
+            await Guardar();
         }
 
-        public void Guardar()
+        public async Task Guardar()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public ProductoVendido ObtenerPorId(int id)
+        public async Task<ProductoVendido> ObtenerPorId(int id)
         {
-            var productoVendido = _context.ProductoVendidos.Find(id);
-            return productoVendido;
+            return await _context.ProductoVendidos.FindAsync(id);
         }
 
-        public List<ProductoVendido> ObtenerTodos()
+        public async Task<List<ProductoVendido>> ObtenerTodos()
         {
-            var lista_productosVendidos = _context.ProductoVendidos.ToList();
-            return lista_productosVendidos;
+            return await _context.ProductoVendidos.ToListAsync();
         }
     }
 }

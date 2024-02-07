@@ -13,51 +13,47 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public void Actualizar(Usuario usuario)
+        public async Task Actualizar(Usuario usuario)
         {
             _context.Update(usuario);
-            Guardar();
+            await Guardar();
         }
 
-        public void Crear(Usuario usuario)
+        public async Task Crear(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            Guardar();
+            await _context.Usuarios.AddAsync(usuario);
+            await Guardar();
         }
 
-        public void Eliminar(Usuario usuario)
+        public async Task Eliminar(Usuario usuario)
         {
             _context.Usuarios.Remove(usuario);
-            _context.SaveChanges();
+            await Guardar();
         }
 
-        public void Guardar()
+        public async Task Guardar()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Usuario ObtenerPorId(int id)
+        public async Task<Usuario> ObtenerPorId(int id)
         {
-            var usuario = _context.Usuarios.Include(u => u.Venta).FirstOrDefault(u => u.Id == id);
-            return usuario;
+            return await _context.Usuarios.Include(u => u.Venta).FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public Usuario ObtenerPorNombre(string nombre)
+        public async Task<Usuario> ObtenerPorNombre(string nombre)
         {
-            var usuario = _context.Usuarios.Include(u => u.Venta).FirstOrDefault(u => u.NombreUsuario == nombre);
-            return usuario;
+            return await _context.Usuarios.Include(u => u.Venta).FirstOrDefaultAsync(u => u.NombreUsuario == nombre);
         }
 
-        public Usuario ObtenerPorMail(string mail)
+        public async Task<Usuario> ObtenerPorMail(string mail)
         {
-            var usuario = _context.Usuarios.Include(u => u.Venta).FirstOrDefault(u => u.Mail == mail);
-            return usuario;
+            return await _context.Usuarios.Include(u => u.Venta).FirstOrDefaultAsync(u => u.Mail == mail);
         }
 
-        public List<Usuario> ObtenerTodos()
+        public async Task<List<Usuario>> ObtenerTodos()
         {
-            var lista_usuarios = _context.Usuarios.Include(u => u.Venta).ToList();
-            return lista_usuarios;
+            return await _context.Usuarios.Include(u => u.Venta).ToListAsync();
         }
     }
 }

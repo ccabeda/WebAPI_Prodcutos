@@ -27,11 +27,11 @@ namespace Proyecto_Final.Services
             _apiResponse = apiResponse;
         }
 
-        public APIResponse ObtenerProducto(int id)
+        public async Task<APIResponse> ObtenerProducto(int id)
         {
             try
             {
-                var producto = _repository.ObtenerPorId(id);
+                var producto = await _repository.ObtenerPorId(id);
                 if (producto == null)
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
@@ -50,11 +50,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ListarProductos()
+        public async Task<APIResponse> ListarProductos()
         {
             try
             {
-                var lista_productos = _repository.ObtenerTodos();
+                var lista_productos = await _repository.ObtenerTodos();
                 if (lista_productos == null)
                 {
                     _logger.LogError("No hay ningún producto registrado actualmente. Vuelve a intentarlo mas tarde.");
@@ -73,7 +73,7 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse CrearProducto([FromBody] ProductoCreateDto productoCreate)
+        public async Task<APIResponse> CrearProducto([FromBody] ProductoCreateDto productoCreate)
         {
             try
             {
@@ -83,14 +83,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existeProducto = _repository.ObtenerPorNombre(productoCreate.Descripciones);
+                var existeProducto = await _repository.ObtenerPorNombre(productoCreate.Descripciones);
                 if (existeProducto != null)
                 {
                     _logger.LogError("Un producto con ese nombre ya se encuentra registrado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existeidUsuario = _repositoryUsuario.ObtenerPorId(productoCreate.IdUsuario);
+                var existeidUsuario = await _repositoryUsuario.ObtenerPorId(productoCreate.IdUsuario);
                 if (existeidUsuario == null)
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
@@ -98,7 +98,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 var producto = _mapper.Map<Producto>(productoCreate);
-                _repository.Crear(producto);
+                await _repository.Crear(producto);
                 _logger.LogInformation("!Producto creado con exito¡");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(producto);
                 return _apiResponse;
@@ -112,11 +112,11 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse ModificarProducto(int id, [FromBody] ProductoUpdateDto productoUpdate)
+        public async Task<APIResponse> ModificarProducto(int id, [FromBody] ProductoUpdateDto productoUpdate)
         {
             try
             {
-                var existeProducto = _repository.ObtenerPorId(productoUpdate.Id); //verifico que el id ingresado este registrado en la db
+                var existeProducto = await _repository.ObtenerPorId(productoUpdate.Id); //verifico que el id ingresado este registrado en la db
                 if (existeProducto == null)
                 {
                     _logger.LogError("Error, el producto que intenta modificar no existe.");
@@ -124,14 +124,14 @@ namespace Proyecto_Final.Services
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var nombre_ya_registrado = _repository.ObtenerPorNombre(productoUpdate.Descripciones);
+                var nombre_ya_registrado = await _repository.ObtenerPorNombre(productoUpdate.Descripciones);
                 if (nombre_ya_registrado != null && nombre_ya_registrado.Id != productoUpdate.Id)
                 {
                     _logger.LogError("El nombre del producto " + productoUpdate.Descripciones + " ya existe. Utilize otro.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var existe_idUsuario = _repositoryUsuario.ObtenerPorId(productoUpdate.IdUsuario);
+                var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(productoUpdate.IdUsuario);
                 if (existe_idUsuario == null)
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
@@ -139,7 +139,7 @@ namespace Proyecto_Final.Services
                     return _apiResponse;
                 }
                 _mapper.Map(productoUpdate, existeProducto);
-                _repository.Actualizar(existeProducto);
+                await _repository.Actualizar(existeProducto);
                 _logger.LogInformation("!El producto de id " + id + " fue actualizado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(existeProducto);
                 return _apiResponse;
@@ -153,18 +153,18 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public APIResponse EliminarProducto(int id)
+        public async Task<APIResponse> EliminarProducto(int id)
         {
             try
             {
-                var producto = _repository.ObtenerPorId(id);
+                var producto = await _repository.ObtenerPorId(id);
                 if (producto == null)
                 {
                     _logger.LogError("El id ingresado no esta registrado.");
                     _apiResponse.FueExitoso = false;
                     return _apiResponse;
                 }
-                var lista_productos_vendidos = _repositoryProductoVendido.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa,
+                var lista_productos_vendidos = await _repositoryProductoVendido.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa,
                                                                                                     //que seria llamando al repository de productos vendidos en el service de producto
                 foreach (var i in lista_productos_vendidos)
                 {
@@ -176,7 +176,7 @@ namespace Proyecto_Final.Services
                         return _apiResponse;
                     }
                 }
-                _repository.Eliminar(producto);
+                await _repository.Eliminar(producto);
                 _logger.LogInformation("¡Producto eliminado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(producto);
                 return _apiResponse;

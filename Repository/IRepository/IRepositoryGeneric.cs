@@ -2,11 +2,11 @@
 {
     public interface IRepositoryGeneric<T> where T : class
     {
-        T ObtenerPorId(int id);
-        List<T> ObtenerTodos();
-        void Crear(T entity);
-        void Actualizar(T entity);
-        void Eliminar(T entity);
-        void Guardar();
+        Task<T> ObtenerPorId(int id);
+        Task<List<T>> ObtenerTodos();
+        Task Crear(T entity);
+        Task Actualizar(T entity);
+        Task Eliminar(T entity);
+        Task Guardar();
     }
 }

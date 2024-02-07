@@ -13,45 +13,42 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public void Actualizar(Producto producto)
+        public async Task Actualizar(Producto producto)
         {
             _context.Update(producto);
-            Guardar();
+            await Guardar();
         }
 
-        public void Crear(Producto producto)
+        public async Task Crear(Producto producto)
         {
-            _context.Productos.Add(producto);
-            Guardar();
+            await _context.Productos.AddAsync(producto);
+            await Guardar();
         }
 
-        public void Eliminar(Producto producto)
+        public async Task Eliminar(Producto producto)
         {
             _context.Productos.Remove(producto);
-            _context.SaveChanges();
+            await Guardar();
         }
 
-        public void Guardar()
+        public async Task Guardar()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Producto ObtenerPorId(int id)
+        public async Task<Producto> ObtenerPorId(int id)
         {
-            var producto = _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefault(p => p.Id == id);
-            return producto;
+            return await _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public Producto ObtenerPorNombre(string nombre)
+        public async Task<Producto> ObtenerPorNombre(string nombre)
         {
-            var producto = _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefault(p => p.Descripciones == nombre);
-            return producto;
+            return await _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefaultAsync(p => p.Descripciones == nombre);
         }
 
-        public List<Producto> ObtenerTodos()
+        public async Task<List<Producto>> ObtenerTodos()
         {
-            var lista_productos = _context.Productos.Include(p => p.ProductoVendidos).ToList();
-            return lista_productos;
+            return await _context.Productos.Include(p => p.ProductoVendidos).ToListAsync();
         }
     }
 }

@@ -5,10 +5,10 @@ namespace WebApi_Proyecto_Final.Services.IService
 {
     public interface IServiceUsuario
     {
-        APIResponse ObtenerUsuario(int id);
-        APIResponse ListarUsuarios();
-        APIResponse CrearUsuario(UsuarioCreateDto usuarioCreate);
-        APIResponse ModificarUsuario(int id, UsuarioUpdateDto usuarioUpdate);
-        APIResponse EliminarUsuario(int id);
+        Task<APIResponse> ObtenerUsuario(int id);
+        Task<APIResponse> ListarUsuarios();
+        Task<APIResponse> CrearUsuario(UsuarioCreateDto usuarioCreate);
+        Task<APIResponse> ModificarUsuario(int id, UsuarioUpdateDto usuarioUpdate);
+        Task<APIResponse> EliminarUsuario(int id);
     }
 }
