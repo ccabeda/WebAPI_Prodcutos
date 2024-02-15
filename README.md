@@ -70,8 +70,8 @@ Obtiene lista de todos los productos.
 - Parametros:
 	Ninguno
 - Respuesta:
-	200: Lista de todos los productos
-	400, 404: Error
+	- 200: Lista de todos los productos
+	- 400, 404: Error
 
 ### Get Producto By Id
 Obtiene el producto con el Id deseado.
