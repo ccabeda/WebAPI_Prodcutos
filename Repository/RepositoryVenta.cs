@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Database;
 using Proyecto_Final.Models;
-using WebApi_Proyecto_Final.Repository.IRepository;
+using Proyecto_Final.Repository.IRepository;
 
-namespace WebApi_Proyecto_Final.Repository
+namespace Proyecto_Final.Repository
 {
-    public class RepositoryVenta : IRepositoryGeneric<Venta>
+    public class RepositoryVenta : IRepositoryVenta
     {
         private readonly AplicationDbContext _context;
         public RepositoryVenta(AplicationDbContext context)
@@ -36,7 +36,7 @@ namespace WebApi_Proyecto_Final.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Venta> ObtenerPorId(int id)
+        public async Task<Venta?> ObtenerPorId(int id)
         {
             return await _context.Venta.Include(v => v.ProductoVendidos).FirstOrDefaultAsync(v => v.Id == id);
         }
@@ -44,6 +44,11 @@ namespace WebApi_Proyecto_Final.Repository
         public async Task<List<Venta>> ObtenerTodos()
         {
             return await _context.Venta.Include(v => v.ProductoVendidos).ToListAsync();
+        }
+
+        public async Task<List<Venta>> ObtenerPorIdUsuario(int idUsuario)
+        {
+            return await _context.Venta.Include(v => v.ProductoVendidos).Where(v => v.IdUsuario == idUsuario).ToListAsync();
         }
     }
 }

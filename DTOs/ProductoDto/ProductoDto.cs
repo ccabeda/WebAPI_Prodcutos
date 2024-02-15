@@ -1,6 +1,6 @@
-﻿using Proyecto_Final.Models;
+﻿using Proyecto_Final.DTOs.ProductoVendidoDto;
 
-namespace WebApi_Proyecto_Final.DTOs.ProductoDto
+namespace Proyecto_Final.DTOs.ProductoDto
 {
     public class ProductoDto
     {
@@ -11,6 +11,6 @@ namespace WebApi_Proyecto_Final.DTOs.ProductoDto
         public int Stock { get; set; }
         public int IdUsuario { get; set; }
 
-        public virtual ICollection<ProductoVendido> ProductoVendidos { get; set; }
+        public virtual ICollection<ProductoVendidoDTO>? ProductoVendidos { get; set; }
     }
 }

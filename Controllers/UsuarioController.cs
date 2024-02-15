@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Proyecto_Final.Models.APIResponse;
-using WebApi_Proyecto_Final.DTOs.UsuarioDto;
-using WebApi_Proyecto_Final.Services.IService;
+using System.Net;
+using Proyecto_Final.DTOs.UsuarioDto;
+using Proyecto_Final.Services.IService;
 
-namespace WebApi_Proyecto_Final.Controllers
+namespace Proyecto_Final.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -15,34 +16,139 @@ namespace WebApi_Proyecto_Final.Controllers
             _service = service;
         }
 
-        [HttpGet] //prueba de un endpoint get. Aun no deben hacerse
-        public async Task<APIResponse> GetUsuarios()
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] //documentar estado de respuesta
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> GetUsuarios()
         {
-            return await _service.ListarUsuarios();
+            var resultado = await _service.ListarUsuarios();
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                default:
+                    return NotFound(resultado);
+            }
         }
 
         [HttpGet(("{id}"), Name = "GetUsuariobyId")]
-        public async Task<APIResponse> GetUsuario(int id)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> GetUsuario(int id)
         {
-            return await _service.ObtenerUsuario(id);
+            var resultado = await _service.ObtenerUsuario(id);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                default:
+                    return NotFound(resultado);
+            }
+        }
+
+        [HttpGet(("UserName/{username}"), Name = "GetUsuariobyUserName")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> GetUsuarioByUserName(string username)
+        {
+            var resultado = await _service.ObtenerUsuarioPorNombreUsuario(username);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                default:
+                    return NotFound(resultado);
+            }
+        }
+
+        [HttpGet(("{username}/Login/{password}"), Name = "Login")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> Login(string username, string password)
+        {
+            var resultado = await _service.IniciarSesion(username, password);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                default:
+                    return NotFound(resultado);
+            }
         }
 
         [HttpPost]
-        public async Task<APIResponse> CreateUsuario(UsuarioCreateDto usuarioCreate)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> CreateUsuario(UsuarioCreateDto usuarioCreate)
         {
-            return await _service.CrearUsuario(usuarioCreate);
+            var resultado = await _service.CrearUsuario(usuarioCreate);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                case HttpStatusCode.Conflict:
+                    return Conflict(resultado);
+                default:
+                    return NotFound(resultado);
+            }
         }
 
         [HttpPut]
-        public async Task<APIResponse> UpdateUsuario(int id, UsuarioUpdateDto usuarioUpdate)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> UpdateUsuario(UsuarioUpdateDto usuarioUpdate)
         {
-            return await _service.ModificarUsuario(id, usuarioUpdate);
+            var resultado = await _service.ModificarUsuario(usuarioUpdate);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                case HttpStatusCode.Conflict:
+                    return Conflict(resultado);
+                default:
+                    return NotFound(resultado);
+            }
         }
 
-        [HttpDelete]
-        public async Task<APIResponse> DeleteUsuario(int id)
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> DeleteUsuario(int id)
         {
-            return await _service.EliminarUsuario(id);
+            var resultado = await _service.EliminarUsuario(id);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                case HttpStatusCode.Conflict:
+                    return Conflict(resultado);
+                default:
+                    return NotFound(resultado);
+            }
         }
     }
 }

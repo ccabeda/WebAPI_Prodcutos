@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proyecto_Final.Database;
 using Proyecto_Final.Models;
-using WebApi_Proyecto_Final.Repository.IRepository;
+using Proyecto_Final.Repository.IRepository;
 
-namespace WebApi_Proyecto_Final.Repository
+namespace Proyecto_Final.Repository
 {
     public class RepositoryProducto : IRepositoryProducto
     {
@@ -36,12 +36,12 @@ namespace WebApi_Proyecto_Final.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Producto> ObtenerPorId(int id)
+        public async Task<Producto?> ObtenerPorId(int id)
         {
             return await _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Producto> ObtenerPorNombre(string nombre)
+        public async Task<Producto?> ObtenerPorNombre(string nombre)
         {
             return await _context.Productos.Include(p => p.ProductoVendidos).FirstOrDefaultAsync(p => p.Descripciones == nombre);
         }

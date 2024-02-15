@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Proyecto_Final.Models;
-using WebApi_Proyecto_Final.DTOs.ProductoDto;
-using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
-using WebApi_Proyecto_Final.DTOs.UsuarioDto;
-using WebApi_Proyecto_Final.DTOs.VentaDto;
+using Proyecto_Final.DTOs.ProductoDto;
+using Proyecto_Final.DTOs.ProductoVendidoDto;
+using Proyecto_Final.DTOs.UsuarioDto;
+using Proyecto_Final.DTOs.VentaDto;
 
-namespace WebApi_Proyecto_Final
+namespace Proyecto_Final.Mappers
 {
     public class AutomapperConfig : Profile
     {
@@ -14,7 +14,7 @@ namespace WebApi_Proyecto_Final
             CreateMap<Producto, ProductoDto>().ReverseMap();
             CreateMap<Producto, ProductoCreateDto>().ReverseMap();
             CreateMap<Producto, ProductoUpdateDto>().ReverseMap();
-            CreateMap<ProductoVendido, ProductoVendidoDto>().ReverseMap();
+            CreateMap<ProductoVendido, ProductoVendidoDTO>().ReverseMap();
             CreateMap<ProductoVendido, ProductoVendidoCreateDto>().ReverseMap();
             CreateMap<ProductoVendido, ProductoVendidoUpdateDto>().ReverseMap();
             CreateMap<Usuario, UsuarioDto>().ReverseMap();

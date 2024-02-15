@@ -1,14 +1,14 @@
 ﻿using Proyecto_Final.Models.APIResponse;
-using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
+using Proyecto_Final.DTOs.ProductoVendidoDto;
 
-namespace WebApi_Proyecto_Final.Services.IService
+namespace Proyecto_Final.Services.IService
 {
     public interface IServiceProductoVendido
     {
         Task<APIResponse> ObtenerProductoVendido(int id);
         Task<APIResponse> ListarProductosVendidos();
         Task<APIResponse> CrearProductoVendido(ProductoVendidoCreateDto productoVendidoCreate);
-        Task<APIResponse> ModificarProductoVendido(int id, ProductoVendidoUpdateDto productoVendidoUpdate);
+        Task<APIResponse> ModificarProductoVendido(ProductoVendidoUpdateDto productoVendidoUpdate);
         Task<APIResponse> EliminarProductoVendido(int id);
     }
 }

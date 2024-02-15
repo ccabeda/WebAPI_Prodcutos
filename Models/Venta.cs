@@ -10,6 +10,6 @@ namespace Proyecto_Final.Models
 
         [JsonIgnore]
         public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
-        public virtual ICollection<ProductoVendido> ProductoVendidos { get; set; }
+        public virtual ICollection<ProductoVendido>? ProductoVendidos { get; set; }
     }
 }

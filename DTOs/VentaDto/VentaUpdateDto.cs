@@ -1,4 +1,4 @@
-﻿namespace WebApi_Proyecto_Final.DTOs.VentaDto
+﻿namespace Proyecto_Final.DTOs.VentaDto
 {
     public class VentaUpdateDto
     {

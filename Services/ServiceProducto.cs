@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Final.Models;
 using Proyecto_Final.Models.APIResponse;
-using WebApi_Proyecto_Final.DTOs.ProductoDto;
-using WebApi_Proyecto_Final.Repository.IRepository;
-using WebApi_Proyecto_Final.Services.IService;
+using System.Net;
+using Proyecto_Final.DTOs.ProductoDto;
+using Proyecto_Final.Repository.IRepository;
+using Proyecto_Final.Services.IService;
 
 namespace Proyecto_Final.Services
 {
@@ -36,15 +37,18 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(producto);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar obtener el Producto: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -59,15 +63,18 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No hay ningún producto registrado actualmente. Vuelve a intentarlo mas tarde.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta= HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 _apiResponse.Resultado = _mapper.Map<IEnumerable<ProductoDto>>(lista_productos);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar obtener la lista de Productos: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -81,6 +88,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("Error al ingresar el producto.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var existeProducto = await _repository.ObtenerPorNombre(productoCreate.Descripciones);
@@ -88,6 +96,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("Un producto con ese nombre ya se encuentra registrado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 var existeidUsuario = await _repositoryUsuario.ObtenerPorId(productoCreate.IdUsuario);
@@ -95,24 +104,27 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                     return _apiResponse;
                 }
                 var producto = _mapper.Map<Producto>(productoCreate);
-                await _repository.Crear(producto);
+                await _repository.Crear(producto!);
                 _logger.LogInformation("!Producto creado con exito¡");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(producto);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar crear el Producto: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
         }
 
-        public async Task<APIResponse> ModificarProducto(int id, [FromBody] ProductoUpdateDto productoUpdate)
+        public async Task<APIResponse> ModificarProducto([FromBody] ProductoUpdateDto productoUpdate)
         {
             try
             {
@@ -122,6 +134,7 @@ namespace Proyecto_Final.Services
                     _logger.LogError("Error, el producto que intenta modificar no existe.");
                     _logger.LogError("Por favor, verifique que el id ingresado exista.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var nombre_ya_registrado = await _repository.ObtenerPorNombre(productoUpdate.Descripciones);
@@ -129,6 +142,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("El nombre del producto " + productoUpdate.Descripciones + " ya existe. Utilize otro.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(productoUpdate.IdUsuario);
@@ -136,18 +150,21 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe usuario con el idUsuario enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                     return _apiResponse;
                 }
                 _mapper.Map(productoUpdate, existeProducto);
                 await _repository.Actualizar(existeProducto);
-                _logger.LogInformation("!El producto de id " + id + " fue actualizado con exito!");
+                _logger.LogInformation("!El producto de id " + productoUpdate.Id + " fue actualizado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(existeProducto);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar actualizar el Producto: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -162,29 +179,33 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("El id ingresado no esta registrado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var lista_productos_vendidos = await _repositoryProductoVendido.ObtenerTodos(); //verificacion para no utilizar borrado de cascada, es una alternativa,
                                                                                                     //que seria llamando al repository de productos vendidos en el service de producto
                 foreach (var i in lista_productos_vendidos)
                 {
-                    if (i.Id == id)
+                    if (i.IdProducto == id)
                     {
                         _logger.LogError("Error. El producto vendido de id " + i.Id + " tiene como ProductoId a este producto.");
                         _logger.LogError("Modifica o elimina el producto vendido para eliminar a este producto.");
                         _apiResponse.FueExitoso = false;
+                        _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                         return _apiResponse;
                     }
                 }
                 await _repository.Eliminar(producto);
                 _logger.LogInformation("¡Producto eliminado con exito!");
                 _apiResponse.Resultado = _mapper.Map<ProductoDto>(producto);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar eliminar el Producto: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }

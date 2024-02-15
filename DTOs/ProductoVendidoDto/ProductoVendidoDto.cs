@@ -1,6 +1,6 @@
-﻿namespace WebApi_Proyecto_Final.DTOs.ProductoVendidoDto
+﻿namespace Proyecto_Final.DTOs.ProductoVendidoDto
 {
-    public class ProductoVendidoDto
+    public class ProductoVendidoDTO
     {
         public int Id { get; set; }
         public int Stock { get; set; }

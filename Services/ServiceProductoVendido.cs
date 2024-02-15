@@ -1,21 +1,22 @@
 ﻿using AutoMapper;
 using Proyecto_Final.Models;
 using Proyecto_Final.Models.APIResponse;
-using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
-using WebApi_Proyecto_Final.Repository.IRepository;
-using WebApi_Proyecto_Final.Services.IService;
+using System.Net;
+using Proyecto_Final.DTOs.ProductoVendidoDto;
+using Proyecto_Final.Repository.IRepository;
+using Proyecto_Final.Services.IService;
 
 namespace Proyecto_Final.Services
 {
     public class ServiceProductoVendido : IServiceProductoVendido
     {
         private readonly IRepositoryGeneric<ProductoVendido> _repository;
-        private readonly IRepositoryGeneric<Venta> _repositoryVenta;
+        private readonly IRepositoryVenta _repositoryVenta;
         private readonly IRepositoryProducto _repositoryProducto;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceProductoVendido> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceProductoVendido(IRepositoryGeneric<ProductoVendido> repository, IRepositoryProducto repositoryProducto, IRepositoryGeneric<Venta> repositoryVenta, IMapper mapper, 
+        public ServiceProductoVendido(IRepositoryGeneric<ProductoVendido> repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper, 
                                       ILogger<ServiceProductoVendido> logger, APIResponse apiResponse)
         {
             _repository = repository;
@@ -35,15 +36,18 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("Error, el id ingresado no se encuentra registrado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(productoVendido);
+                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDTO>(productoVendido);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar obtener el Producto Vendido: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -58,15 +62,18 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No hay ningún producto vendido registrado actualmente. Vuelve a intentarlo mas tarde.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                _apiResponse.Resultado = _mapper.Map<IEnumerable<ProductoVendidoDto>>(lista_productosVendidos);
+                _apiResponse.Resultado = _mapper.Map<IEnumerable<ProductoVendidoDTO>>(lista_productosVendidos);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar obtener la lista de Productos Vendidos: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -80,6 +87,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("Error al ingresar el producto vendido.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var existe_idProducto = await _repositoryProducto.ObtenerPorId(productoVendidoCreate.IdProducto);
@@ -87,6 +95,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe producto con el idProdcuto enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 var existe_idVenta = await _repositoryVenta.ObtenerPorId(productoVendidoCreate.IdVenta);
@@ -94,33 +103,37 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe venta realizada con el idVenta enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 var productoVendido = _mapper.Map<ProductoVendido>(productoVendidoCreate);
-                await _repository.Crear(productoVendido);
+                await _repository.Crear(productoVendido!);
                 _logger.LogInformation("!ProductoVendido creado con exito¡");
-                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(productoVendido);
+                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDTO>(productoVendido);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar crear el Producto Vendido: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
         }
 
-        public async Task<APIResponse> ModificarProductoVendido(int id, ProductoVendidoUpdateDto productoVendidoUpdate)
+        public async Task<APIResponse> ModificarProductoVendido(ProductoVendidoUpdateDto productoVendidoUpdate)
         {
             try
             {
-                var existeProductoVendido = await _repository.ObtenerPorId(id);
+                var existeProductoVendido = await _repository.ObtenerPorId(productoVendidoUpdate.Id);
                 if (existeProductoVendido == null)
                 {
                     _logger.LogError("Error, el producto vendido que intenta modificar no existe.");
                     _logger.LogError("Por favor, verifique que el id ingresado exista.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var existe_idProducto = await _repositoryProducto.ObtenerPorId(productoVendidoUpdate.IdProducto);
@@ -128,6 +141,7 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe producto con el idProdcuto enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 var existe_idVenta = await _repositoryVenta.ObtenerPorId(productoVendidoUpdate.IdVenta);
@@ -135,18 +149,21 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("No existe venta realizada con el idVenta enviado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
                 _mapper.Map(productoVendidoUpdate, existeProductoVendido);
                 await _repository.Actualizar(existeProductoVendido);
-                _logger.LogInformation("!El producto vendido de id " + id + " fue actualizado con exito!");
-                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(existeProductoVendido);
+                _logger.LogInformation("!El producto vendido de id " + productoVendidoUpdate.Id + " fue actualizado con exito!");
+                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDTO>(existeProductoVendido);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar actualizar el Producto Vendido: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
@@ -161,17 +178,20 @@ namespace Proyecto_Final.Services
                 {
                     _logger.LogError("El id ingresado no esta registrado.");
                     _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 await _repository.Eliminar(productoVendido);
                 _logger.LogInformation("¡Producto vendido eliminado con exito!");
-                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDto>(productoVendido);
+                _apiResponse.Resultado = _mapper.Map<ProductoVendidoDTO>(productoVendido);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar eliminar el Producto Vendido: " + ex.Message);
                 _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };
                 return _apiResponse;
             }

@@ -1,7 +1,7 @@
 ﻿using Proyecto_Final.Models;
-using System.Text.Json.Serialization;
+using Proyecto_Final.DTOs.ProductoVendidoDto;
 
-namespace WebApi_Proyecto_Final.DTOs.VentaDto
+namespace Proyecto_Final.DTOs.VentaDto
 {
     public class VentaDto
     {
@@ -10,6 +10,6 @@ namespace WebApi_Proyecto_Final.DTOs.VentaDto
         public string? Comentarios { get; set; }
         public int IdUsuario { get; set; }
 
-        public virtual ICollection<ProductoVendido> ProductoVendidos { get; set; }
+        public  ICollection<ProductoVendidoDTO>? ProductoVendidos { get; set; }
     }
 }

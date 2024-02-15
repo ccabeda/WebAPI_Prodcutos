@@ -1,6 +1,6 @@
 ﻿using Proyecto_Final.Models;
 
-namespace WebApi_Proyecto_Final.DTOs.UsuarioDto
+namespace Proyecto_Final.DTOs.UsuarioDto
 {
     public class UsuarioDto
     {
@@ -11,6 +11,6 @@ namespace WebApi_Proyecto_Final.DTOs.UsuarioDto
         public string Contraseña { get; set; } = null!;
         public string Mail { get; set; } = null!;
 
-        public virtual ICollection<Venta> Venta { get; set; }
+        public virtual ICollection<Venta>? Venta { get; set; }
     }
 }

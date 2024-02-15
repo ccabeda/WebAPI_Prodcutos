@@ -9,7 +9,7 @@
         public string Contraseña { get; set; } = null!;
         public string Mail { get; set; } = null!;
 
-        public virtual ICollection<Producto> Productos { get; set; }
-        public virtual ICollection<Venta> Venta { get; set; }
+        public virtual ICollection<Producto>? Productos { get; set; }
+        public virtual ICollection<Venta>? Venta { get; set; }
     }
 }
