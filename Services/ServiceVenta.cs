@@ -199,7 +199,7 @@ namespace Proyecto_Final.Services
             try
             {
                 var lista_Ventas = await _repository.ObtenerPorIdUsuario(idUsuario); //traigo la lista de usuarios
-                if (lista_Ventas == null)
+                if (lista_Ventas.Count == 0)
                 {
                     _logger.LogError("No hay ningúna venta registrada a ese IdUsuario. Vuelve a intentarlo mas tarde.");
                     _apiResponse.FueExitoso = false;

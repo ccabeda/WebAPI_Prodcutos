@@ -5,6 +5,7 @@ using System.Net;
 using Proyecto_Final.DTOs.ProductoVendidoDto;
 using Proyecto_Final.Repository.IRepository;
 using Proyecto_Final.Services.IService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Proyecto_Final.Services
 {

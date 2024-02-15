@@ -50,5 +50,10 @@ namespace Proyecto_Final.Repository
         {
             return await _context.Productos.Include(p => p.ProductoVendidos).ToListAsync();
         }
+
+        public async Task<List<Producto>> ObtenerPorIdUsuario(int idUsuario)
+        {
+            return await _context.Productos.Include(v => v.ProductoVendidos).Where(v => v.IdUsuario == idUsuario).ToListAsync();
+        }
     }
 }

@@ -210,5 +210,31 @@ namespace Proyecto_Final.Services
                 return _apiResponse;
             }
         }
+
+        public async Task<APIResponse> ListarProductosPorIdUsuario(int idUsuario)
+        {
+            try
+            {
+                var lista_productos = await _repository.ObtenerPorIdUsuario(idUsuario); 
+                if (lista_productos.Count == 0)
+                {
+                    _logger.LogError("No hay ningún producto registrada a ese IdUsuario. Vuelve a intentarlo mas tarde.");
+                    _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                    return _apiResponse;
+                }
+                _apiResponse.Resultado = _mapper.Map<IEnumerable<ProductoDto>>(lista_productos);
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
+                return _apiResponse;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Ocurrió un error al intentar obtener la lista de Productos de ese IdUsuario: " + ex.Message);
+                _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
+                _apiResponse.Exepciones = new List<string> { ex.ToString() };
+                return _apiResponse;
+            }
+        }
     }
 }
