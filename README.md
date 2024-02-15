@@ -89,8 +89,8 @@ Obtiene el producto con el Id deseado.
 - Parametros:
   	Id (URL)
 - Respuesta:  
-	200: Producto 
-	400 - 404: Error
+	- 200: Producto 
+	- 400 - 404: Error
 
 ### Get Productos By IdUsuario
 Obtiene lista de todos los productos con el mismo idUsuario.
@@ -108,8 +108,8 @@ Obtiene lista de todos los productos con el mismo idUsuario.
 - Parametros:
   	Nombre (URl)
 - Respuesta:  
-	200: Lista de productos con el mismo IdUsuario 
-	400 - 404: Error
+	- 200: Lista de productos con el mismo IdUsuario 
+	- 400 - 404: Error
 
 ### Create Producto
 Crea un producto.
@@ -127,8 +127,8 @@ Crea un producto.
 - Parametros:
   	Datos personales en formato Json (body)
 - Respuesta:  
-	200: Producto
-	400, 404, 409: Error
+	- 200: Producto
+	- 400, 404, 409: Error
 
 ### Update Producto
 Modifica un producto.
@@ -146,8 +146,8 @@ Modifica un producto.
 - Parametros:
   Datos personales en formato Json (body)
 - Respuesta:  
-	200: Producto
-  400, 404, 409: Error
+	- 200: Producto
+  	- 400, 404, 409: Error
 
 ### Delete Producto
 Elimina el producto.
@@ -165,8 +165,8 @@ Elimina el producto.
 - Parametros:
   Id (URL)
 - Respuesta:
-	200: Producto eliminado
-  400, 404, 409: Error
+	- 200: Producto eliminado
+  - 	400, 404, 409: Error
 
 ##  ProductoVendido
 
@@ -186,8 +186,8 @@ Obtiene lista de todos los productos vendidos.
 - Parametros:
 	Ninguno
 - Respuesta:
-	200: Lista de todos los productos vendidos
-	400, 404: Error
+	- 200: Lista de todos los productos vendidos
+	- 400, 404: Error
 
 ### Get ProductoVendido By Id
 Obtiene el producto vendido con el Id deseado.
@@ -205,8 +205,8 @@ Obtiene el producto vendido con el Id deseado.
 - Parametros:
   	Id (URL)
 - Respuesta:  
-	200: ProductoVendido 
-	400 - 404: Error
+	- 200: ProductoVendido 
+	- 400 - 404: Error
 
 ### Get ProductosVendidos By IdUsuario
 Obtiene lista de todos los productos que fueron vendidos por un mismo usuario. Primero recupera la lista de Productos con el mismo IdUsuario, y luego verifica cuales coinciden con el IdProducto de ProductoVendido.
@@ -224,8 +224,8 @@ Obtiene lista de todos los productos que fueron vendidos por un mismo usuario. P
 - Parametros:
   	Nombre (URl)
 - Respuesta:  
-	200: Lista de productos vendidos por el mismo usuario
-	400 - 404: Error
+	- 200: Lista de productos vendidos por el mismo usuario
+	- 400 - 404: Error
 
 ### Create ProductoVendido
 Crea un producto vendido.
@@ -243,8 +243,8 @@ Crea un producto vendido.
 - Parametros:
   	Datos personales en formato Json (body)
 - Respuesta:  
-	200: ProductoVendido
-	400, 404, 409: Error
+	- 200: ProductoVendido
+	- 400, 404, 409: Error
 
 ### Update ProductoVendido
 Modifica un producto vendido.
@@ -262,8 +262,8 @@ Modifica un producto vendido.
 - Parametros:
   Datos personales en formato Json (body)
 - Respuesta:  
-	200: ProductoVendido
-  400, 404, 409: Error
+	- 200: ProductoVendido
+ 	- 400, 404, 409: Error
 
 ### Delete ProductoVendido
 Elimina el producto vendido.
@@ -281,8 +281,8 @@ Elimina el producto vendido.
 - Parametros:
   Id (URL)
 - Respuesta:
-	200: ProductoVendido eliminado
-  400, 404, 409: Error
+	- 200: ProductoVendido eliminado
+  	- 400, 404, 409: Error
 
 ##  Usuario
 
@@ -302,8 +302,8 @@ Obtiene lista de todos los usuarios.
 - Parametros:
 	Ninguno
 - Respuesta:
-	200: Lista de todos los usuarios
-	400, 404: Error
+	- 200: Lista de todos los usuarios
+	- 400, 404: Error
 
 ### Get Usuario By Id
 Obtiene el usuario con el Id deseado.
@@ -321,8 +321,8 @@ Obtiene el usuario con el Id deseado.
 - Parametros:
   	Id (URL)
 - Respuesta:  
-	200: Usuario 
-	400 - 404: Error
+	- 200: Usuario 
+	- 400 - 404: Error
 
 ### Get Usuario By Username
 Obtiene el usuario con el username.
@@ -340,8 +340,8 @@ Obtiene el usuario con el username.
 - Parametros:
   	username (URL)
 - Respuesta:  
-	200: Usuario 
-	400 - 404: Error
+	- 200: Usuario 
+	- 400 - 404: Error
 
 ### Login
 Obtiene el usuario con el username y la contraseña.
@@ -363,8 +363,8 @@ Obtiene el usuario con el username y la contraseña.
 - Parametros:
   	username (URL), password (URL)
 - Respuesta:  
-	200: Usuario 
-	400 - 404: Error
+	- 200: Usuario 
+	- 400 - 404: Error
 
 ### Create Usuario
 Crea un usuario.
@@ -382,8 +382,8 @@ Crea un usuario.
 - Parametros:
   	Datos personales en formato Json (body)
 - Respuesta:  
-	200: Usuario
-	400, 404, 409: Error
+	- 200: Usuario
+	- 400, 404, 409: Error
 
 ### Update Usuario
 Modifica un usuario.
@@ -401,8 +401,8 @@ Modifica un usuario.
 - Parametros:
   Datos personales en formato Json (body)
 - Respuesta:  
-	200: Usuario
-  400, 404, 409: Error
+	- 200: Usuario
+  	- 400, 404, 409: Error
 
 ### Delete Usuario
 Elimina el usuario.
@@ -420,8 +420,8 @@ Elimina el usuario.
 - Parametros:
   Id (URL)
 - Respuesta:
-	200: Usuario eliminado
-  400, 404, 409: Error
+	- 200: Usuario eliminado
+  	- 400, 404, 409: Error
 
 ##  Venta
 
@@ -441,8 +441,8 @@ Obtiene lista de todas las ventas.
 - Parametros:
 	Ninguno
 - Respuesta:
-	200: Lista de todas las ventas
-	400, 404: Error
+	- 200: Lista de todas las ventas
+	- 400, 404: Error
 
 ### Get Venta By Id
 Obtiene la venta con el Id deseado.
@@ -460,8 +460,8 @@ Obtiene la venta con el Id deseado.
 - Parametros:
   	Id (URL)
 - Respuesta:  
-	200: Venta 
-	400 - 404: Error
+	- 200: Venta 
+	- 400 - 404: Error
 
 ### Get Ventas By IdUsuario
 Obtiene lista de todas las ventas con el mismo idUsuario.
@@ -479,8 +479,8 @@ Obtiene lista de todas las ventas con el mismo idUsuario.
 - Parametros:
   	Nombre (URl)
 - Respuesta:  
-	200: Lista de ventas con el mismo IdUsuario 
-	400 - 404: Error
+	- 200: Lista de ventas con el mismo IdUsuario 
+	- 400 - 404: Error
 
 ### Create Venta
 Crea una venta.
@@ -498,8 +498,8 @@ Crea una venta.
 - Parametros:
   	Datos personales en formato Json (body)
 - Respuesta:  
-	200: Venta
-	400, 404, 409: Error
+	- 200: Venta
+	- 400, 404, 409: Error
 
 ### Update Venta
 Modifica una venta.
@@ -517,8 +517,8 @@ Modifica una venta.
 - Parametros:
   Datos personales en formato Json (body)
 - Respuesta:  
-	200: Producto
-  400, 404, 409: Error
+	- 200: Venta
+  	- 400, 404, 409: Error
 
 ### Delete Venta
 Elimina la venta.
@@ -536,5 +536,5 @@ Elimina la venta.
 - Parametros:
   Id (URL)
 - Respuesta:
-	200: Venta eliminada
-  400, 404, 409: Error
+	- 200: Venta eliminada
+  	- 400, 404, 409: Error
