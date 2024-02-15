@@ -166,7 +166,7 @@ Elimina el producto.
   Id (URL)
 - Respuesta:
 	- 200: Producto eliminado
-  - 	400, 404, 409: Error
+  	- 400, 404, 409: Error
 
 ##  ProductoVendido
 
