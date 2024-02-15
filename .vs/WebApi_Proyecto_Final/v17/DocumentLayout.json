@@ -3,84 +3,100 @@
   "WorkspaceRootPath": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\repositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\repositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\productovendidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\productovendidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositorygeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositorygeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\servicenombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\servicenombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\nombrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\nombrecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\models\\productovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:models\\productovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iservicenombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iservicenombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\repositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\repositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\productovendidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\productovendidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\repositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\repositoryproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\repositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\repositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\productocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\iservice\\iserviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\iservice\\iserviceproductovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\models\\productovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:models\\productovendido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositorygeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositorygeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\repositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\repositoryproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\repository\\irepository\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:repository\\irepository\\irepositoryusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -106,63 +122,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IServiceProductoVendido.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProductoVendido.cs",
-              "RelativeDocumentMoniker": "Services\\IService\\IServiceProductoVendido.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProductoVendido.cs",
-              "RelativeToolTip": "Services\\IService\\IServiceProductoVendido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:40:56.381Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ServiceProducto.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProducto.cs",
-              "RelativeDocumentMoniker": "Services\\ServiceProducto.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProducto.cs",
-              "RelativeToolTip": "Services\\ServiceProducto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAnAAAA",
+              "Title": "ServiceNombre.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceNombre.cs",
+              "RelativeDocumentMoniker": "Services\\ServiceNombre.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceNombre.cs",
+              "RelativeToolTip": "Services\\ServiceNombre.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:05:00.529Z",
+              "WhenOpened": "2024-02-15T16:36:42.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ServiceProductoVendido.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProductoVendido.cs",
-              "RelativeDocumentMoniker": "Services\\ServiceProductoVendido.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProductoVendido.cs",
-              "RelativeToolTip": "Services\\ServiceProductoVendido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAZAAAA",
+              "DocumentIndex": 5,
+              "Title": "IServiceNombre.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceNombre.cs",
+              "RelativeDocumentMoniker": "Services\\IService\\IServiceNombre.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceNombre.cs",
+              "RelativeToolTip": "Services\\IService\\IServiceNombre.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:04:50.112Z",
+              "WhenOpened": "2024-02-15T16:35:01.384Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "NombreController.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\NombreController.cs",
+              "RelativeDocumentMoniker": "Controllers\\NombreController.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\NombreController.cs",
+              "RelativeToolTip": "Controllers\\NombreController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T16:33:40.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductoVendidoController.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoVendidoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductoVendidoController.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoVendidoController.cs",
+              "RelativeToolTip": "Controllers\\ProductoVendidoController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAiwCUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T08:15:08.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "IServiceProducto.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProducto.cs",
               "RelativeDocumentMoniker": "Services\\IService\\IServiceProducto.cs",
               "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProducto.cs",
               "RelativeToolTip": "Services\\IService\\IServiceProducto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-15T07:12:15.448Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "ProductoController.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductoController.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoController.cs",
+              "RelativeToolTip": "Controllers\\ProductoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T07:08:50.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "IServiceVenta.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceVenta.cs",
               "RelativeDocumentMoniker": "Services\\IService\\IServiceVenta.cs",
@@ -175,124 +217,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RepositoryProductoVendido.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProductoVendido.cs",
-              "RelativeDocumentMoniker": "Repository\\RepositoryProductoVendido.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProductoVendido.cs",
-              "RelativeToolTip": "Repository\\RepositoryProductoVendido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:45:24.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IRepositoryGeneric.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryGeneric.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryGeneric.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryGeneric.cs",
-              "RelativeToolTip": "Repository\\IRepository\\IRepositoryGeneric.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:57:10.69Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ProductoVendidoController.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoVendidoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductoVendidoController.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoVendidoController.cs",
-              "RelativeToolTip": "Controllers\\ProductoVendidoController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAUwCMAAAAJAAAA",
+              "Title": "ServiceProducto.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProducto.cs",
+              "RelativeDocumentMoniker": "Services\\ServiceProducto.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProducto.cs",
+              "RelativeToolTip": "Services\\ServiceProducto.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wDUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T08:15:08.937Z",
+              "WhenOpened": "2024-02-15T06:05:00.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ServiceUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceUsuario.cs",
-              "RelativeDocumentMoniker": "Services\\ServiceUsuario.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceUsuario.cs",
-              "RelativeToolTip": "Services\\ServiceUsuario.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOcAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:53:40.682Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ServiceVenta.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
-              "RelativeDocumentMoniker": "Services\\ServiceVenta.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
-              "RelativeToolTip": "Services\\ServiceVenta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAACCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:53:09.9Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAiwB4AAAAbAAAA",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAiwBwAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-15T06:08:11.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AutomapperConfig.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\AutomapperConfig.cs",
-              "RelativeDocumentMoniker": "AutomapperConfig.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\AutomapperConfig.cs",
-              "RelativeToolTip": "AutomapperConfig.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 10,
+              "Title": "IRepositoryProductoVendido.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProductoVendido.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryProductoVendido.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProductoVendido.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IRepositoryProductoVendido.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T08:18:08.099Z",
+              "WhenOpened": "2024-02-15T15:00:33.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RepositoryProductoVendido.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProductoVendido.cs",
+              "RelativeDocumentMoniker": "Repository\\RepositoryProductoVendido.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProductoVendido.cs",
+              "RelativeToolTip": "Repository\\RepositoryProductoVendido.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAwwDAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T07:45:24.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServiceProductoVendido.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProductoVendido.cs",
+              "RelativeDocumentMoniker": "Services\\ServiceProductoVendido.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceProductoVendido.cs",
+              "RelativeToolTip": "Services\\ServiceProductoVendido.cs",
+              "ViewState": "AQIAAMcAAAAAAAAAAAAmwN8AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T06:04:50.112Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "ProductoVendido.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\ProductoVendido.cs",
-              "RelativeDocumentMoniker": "Models\\ProductoVendido.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\ProductoVendido.cs",
-              "RelativeToolTip": "Models\\ProductoVendido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:15:43.075Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\Producto.cs",
-              "RelativeDocumentMoniker": "Models\\Producto.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\Producto.cs",
-              "RelativeToolTip": "Models\\Producto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:16:03.247Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "IRepositoryVenta.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryVenta.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryVenta.cs",
@@ -306,19 +296,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "RepositoryProducto.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProducto.cs",
-              "RelativeDocumentMoniker": "Repository\\RepositoryProducto.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProducto.cs",
-              "RelativeToolTip": "Repository\\RepositoryProducto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAFAAAA",
+              "Title": "AutomapperConfig.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\AutomapperConfig.cs",
+              "RelativeDocumentMoniker": "AutomapperConfig.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\AutomapperConfig.cs",
+              "RelativeToolTip": "AutomapperConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:53:55.842Z",
+              "WhenOpened": "2024-02-15T08:18:08.099Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
+              "Title": "IRepositoryProducto.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProducto.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryProducto.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProducto.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IRepositoryProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T06:53:42.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "RepositoryVenta.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryVenta.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryVenta.cs",
@@ -332,19 +335,95 @@
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "IRepositoryProducto.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProducto.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryProducto.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryProducto.cs",
-              "RelativeToolTip": "Repository\\IRepository\\IRepositoryProducto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAaAAAA",
+              "Title": "ServiceVenta.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
+              "RelativeDocumentMoniker": "Services\\ServiceVenta.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
+              "RelativeToolTip": "Services\\ServiceVenta.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAB5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:53:42.836Z",
+              "WhenOpened": "2024-02-15T05:53:09.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ServiceUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceUsuario.cs",
+              "RelativeDocumentMoniker": "Services\\ServiceUsuario.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceUsuario.cs",
+              "RelativeToolTip": "Services\\ServiceUsuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T05:53:40.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T07:16:03.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProductoVendido.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\ProductoVendido.cs",
+              "RelativeDocumentMoniker": "Models\\ProductoVendido.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\ProductoVendido.cs",
+              "RelativeToolTip": "Models\\ProductoVendido.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T07:15:43.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IRepositoryGeneric.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryGeneric.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryGeneric.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryGeneric.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IRepositoryGeneric.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T05:57:10.69Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "IServiceProductoVendido.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProductoVendido.cs",
+              "RelativeDocumentMoniker": "Services\\IService\\IServiceProductoVendido.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\IService\\IServiceProductoVendido.cs",
+              "RelativeToolTip": "Services\\IService\\IServiceProductoVendido.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T07:40:56.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RepositoryProducto.cs",
+              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProducto.cs",
+              "RelativeDocumentMoniker": "Repository\\RepositoryProducto.cs",
+              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryProducto.cs",
+              "RelativeToolTip": "Repository\\RepositoryProducto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-15T06:53:55.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "IRepositoryUsuario.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\IRepository\\IRepositoryUsuario.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IRepositoryUsuario.cs",
@@ -352,12 +431,11 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:56:11.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:56:11.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "VentaController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\VentaController.cs",
               "RelativeDocumentMoniker": "Controllers\\VentaController.cs",
@@ -365,25 +443,11 @@
               "RelativeToolTip": "Controllers\\VentaController.cs",
               "ViewState": "AQIAABgAAAAAAAAAAADwvyQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:50:19.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:50:19.926Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ProductoController.cs",
-              "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ProductoController.cs",
-              "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoController.cs",
-              "RelativeToolTip": "Controllers\\ProductoController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwCoAAABBAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:08:50.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "Venta.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Models\\Venta.cs",
               "RelativeDocumentMoniker": "Models\\Venta.cs",
@@ -391,12 +455,11 @@
               "RelativeToolTip": "Models\\Venta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:50:25.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:50:25.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "RepositoryUsuario.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Repository\\RepositoryUsuario.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryUsuario.cs",
@@ -408,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",

@@ -13,11 +13,11 @@ namespace Proyecto_Final.Services
     {
         private readonly IRepositoryProducto _repository;
         private readonly IRepositoryUsuario _repositoryUsuario;
-        private readonly IRepositoryGeneric<ProductoVendido> _repositoryProductoVendido;
+        private readonly IRepositoryProductoVendido _repositoryProductoVendido;
         private readonly IMapper _mapper; //para mapear a dtos
         private readonly ILogger<ServiceProducto> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceProducto(IRepositoryProducto repository, IRepositoryUsuario repositoryUsuario, IRepositoryGeneric<ProductoVendido> repositoryProductoVendido, IMapper mapper,
+        public ServiceProducto(IRepositoryProducto repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper,
                                ILogger<ServiceProducto> logger, APIResponse apiResponse)
         {
             _repository = repository;

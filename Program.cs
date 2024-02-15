@@ -26,9 +26,10 @@ builder.Services.AddScoped<IServiceUsuario, ServiceUsuario>();
 builder.Services.AddScoped<IServiceVenta, ServiceVenta>();
 builder.Services.AddScoped<IServiceProducto, ServiceProducto>();
 builder.Services.AddScoped<IServiceProductoVendido, ServiceProductoVendido>();
+builder.Services.AddScoped<IServiceNombre, ServiceNombre>();
 //repository
 builder.Services.AddScoped<IRepositoryVenta, RepositoryVenta>();
-builder.Services.AddScoped<IRepositoryGeneric<ProductoVendido>, RepositoryProductoVendido>();
+builder.Services.AddScoped<IRepositoryProductoVendido, RepositoryProductoVendido>();
 builder.Services.AddScoped<IRepositoryProducto, RepositoryProducto>();
 builder.Services.AddScoped<IRepositoryUsuario, RepositoryUsuario>();
 //automapper

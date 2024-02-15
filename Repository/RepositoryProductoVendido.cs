@@ -5,7 +5,7 @@ using Proyecto_Final.Repository.IRepository;
 
 namespace Proyecto_Final.Repository
 {
-    public class RepositoryProductoVendido : IRepositoryGeneric<ProductoVendido>
+    public class RepositoryProductoVendido : IRepositoryProductoVendido
     {
         private readonly AplicationDbContext _context;
         public RepositoryProductoVendido(AplicationDbContext context)
@@ -44,6 +44,11 @@ namespace Proyecto_Final.Repository
         public async Task<List<ProductoVendido>> ObtenerTodos()
         {
             return await _context.ProductoVendidos.ToListAsync();
+        }
+
+        public async Task<List<ProductoVendido>> ObtenerPorIdProducto(int idProducto)
+        {
+            return await _context.ProductoVendidos.Where(p => p.IdProducto == idProducto).ToListAsync();
         }
     }
 }

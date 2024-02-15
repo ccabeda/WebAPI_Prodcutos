@@ -12,11 +12,11 @@ namespace Proyecto_Final.Services
     {
         private readonly IRepositoryVenta _repository;
         private readonly IRepositoryUsuario _repositoryUsuario;
-        private readonly IRepositoryGeneric<ProductoVendido> _repositoryProductoVendido;
+        private readonly IRepositoryProductoVendido _repositoryProductoVendido;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceVenta> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryGeneric<ProductoVendido> repositoryProductoVendido, IMapper mapper,
+        public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper,
                             ILogger<ServiceVenta> logger, APIResponse apiResponse)
         {
             _repository = repository;

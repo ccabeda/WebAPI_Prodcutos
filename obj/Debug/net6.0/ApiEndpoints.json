@@ -1,5 +1,34 @@
 [
   {
+    "ContainingType": "Proyecto_Final.Controllers.NombreController",
+    "Method": "GetNombre",
+    "RelativePath": "api/Nombre",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
     "ContainingType": "Proyecto_Final.Controllers.ProductoController",
     "Method": "GetProductos",
     "RelativePath": "api/Producto",
@@ -504,6 +533,50 @@
           "text/json"
         ],
         "StatusCode": 409
+      },
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "Method": "GetProductosVendidosByIdUsuario",
+    "RelativePath": "api/ProductoVendido/IdUsuario/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
       },
       {
         "Type": "Proyecto_Final.Models.APIResponse.APIResponse",

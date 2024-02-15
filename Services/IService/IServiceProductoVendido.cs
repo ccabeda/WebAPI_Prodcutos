@@ -7,6 +7,7 @@ namespace Proyecto_Final.Services.IService
     {
         Task<APIResponse> ObtenerProductoVendido(int id);
         Task<APIResponse> ListarProductosVendidos();
+        Task<APIResponse> ListarProductosVendidosPorIdUsuario(int idUsuario);
         Task<APIResponse> CrearProductoVendido(ProductoVendidoCreateDto productoVendidoCreate);
         Task<APIResponse> ModificarProductoVendido(ProductoVendidoUpdateDto productoVendidoUpdate);
         Task<APIResponse> EliminarProductoVendido(int id);

@@ -11,13 +11,13 @@ namespace Proyecto_Final.Services
 {
     public class ServiceProductoVendido : IServiceProductoVendido
     {
-        private readonly IRepositoryGeneric<ProductoVendido> _repository;
+        private readonly IRepositoryProductoVendido _repository;
         private readonly IRepositoryVenta _repositoryVenta;
         private readonly IRepositoryProducto _repositoryProducto;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceProductoVendido> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceProductoVendido(IRepositoryGeneric<ProductoVendido> repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper, 
+        public ServiceProductoVendido(IRepositoryProductoVendido repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper,
                                       ILogger<ServiceProductoVendido> logger, APIResponse apiResponse)
         {
             _repository = repository;
@@ -191,6 +191,46 @@ namespace Proyecto_Final.Services
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar eliminar el Producto Vendido: " + ex.Message);
+                _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
+                _apiResponse.Exepciones = new List<string> { ex.ToString() };
+                return _apiResponse;
+            }
+        }
+
+        public async Task<APIResponse> ListarProductosVendidosPorIdUsuario(int idUsuario)
+        {
+            try
+            {
+                var lista_productos = await _repositoryProducto.ObtenerPorIdUsuario(idUsuario); //obtengo todos los productos con el idusuario que enviaron
+                if (lista_productos.Count == 0) //si no hay ninguno entra aca
+                {
+                    _logger.LogError("No hay productos vendidos con ese idUsuario");
+                    _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                    return _apiResponse;
+                }
+                var lista_final = new List<ProductoVendido>();
+                var lista_de_id_yaUsada = new List<int>(); //creo lista de ids ya usadas para no dar mas vueltas de las necesarias
+                foreach (var i in lista_productos) //de todos los productos del mismo idusuario
+                {
+                    if (!lista_de_id_yaUsada.Contains(i.Id)) //si la id aun no se reviso
+                    {
+                        var resultado = await _repository.ObtenerPorIdProducto(i.Id); //busco y me quedo con los que allan sido vendidos
+                        if (resultado != null)
+                        {
+                            lista_final.AddRange(resultado); //agrego la lista a una nueva lista
+                        }
+                    }
+                    lista_de_id_yaUsada.Add(i.Id); //agrego el Id ya usado para que no vuelva a usarse
+                }
+                _apiResponse.Resultado = lista_final; //los agrego a mi objeto de respuesta
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
+                return _apiResponse;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Ocurrió un error: " + ex.Message);
                 _apiResponse.FueExitoso = false;
                 _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };

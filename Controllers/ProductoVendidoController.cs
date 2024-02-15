@@ -35,6 +35,24 @@ namespace Proyecto_Final.Controllers
             }
         }
 
+        [HttpGet("IdUsuario/{idUsuario}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] //documentar estado de respuesta
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<APIResponse>> GetProductosVendidosByIdUsuario(int idUsuario)
+        {
+            var resultado = await _service.ListarProductosVendidosPorIdUsuario(idUsuario);
+            switch (resultado.EstadoRespuesta)
+            {
+                case HttpStatusCode.BadRequest:
+                    return BadRequest(resultado);
+                case HttpStatusCode.OK:
+                    return Ok(resultado);
+                default:
+                    return NotFound(resultado);
+            }
+        }
+
         [HttpGet(("{id}"), Name = "GetProductoVendidobyId")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
         [ProducesResponseType(StatusCodes.Status200OK)]
