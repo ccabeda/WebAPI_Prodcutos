@@ -515,7 +515,7 @@ Crea una venta a aprtir de una lista de productos. Ademas, por cada producto de 
 
 | Parametro | Tipo     | Descripción              |
 | :-------- | :------- | :------------------------- |
-| List<Productos> | `ProductoUpdateDto` | **Requerido** por body.  |
+| List<Productos> | `ProductoDtoParaVentas` | **Requerido** por body.  |
 
 - URL: https://localhost:7104/api/Venta
 - Metodo: POST
