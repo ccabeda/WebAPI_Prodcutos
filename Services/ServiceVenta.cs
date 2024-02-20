@@ -5,6 +5,7 @@ using System.Net;
 using Proyecto_Final.DTOs.VentaDto;
 using Proyecto_Final.Repository.IRepository;
 using Proyecto_Final.Services.IService;
+using Proyecto_Final.DTOs.ProductoDto;
 
 namespace Proyecto_Final.Services
 {
@@ -13,11 +14,12 @@ namespace Proyecto_Final.Services
         private readonly IRepositoryVenta _repository;
         private readonly IRepositoryUsuario _repositoryUsuario;
         private readonly IRepositoryProductoVendido _repositoryProductoVendido;
+        private readonly IRepositoryProducto _repositoryProducto;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceVenta> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper,
-                            ILogger<ServiceVenta> logger, APIResponse apiResponse)
+        public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper, 
+            IRepositoryProducto repositoryProducto, ILogger<ServiceVenta> logger, APIResponse apiResponse)
         {
             _repository = repository;
             _repositoryUsuario = repositoryUsuario;
@@ -25,6 +27,7 @@ namespace Proyecto_Final.Services
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
+            _repositoryProducto = repositoryProducto;
         }
 
         public async Task<APIResponse> ObtenerVenta(int id)
@@ -213,6 +216,66 @@ namespace Proyecto_Final.Services
             catch (Exception ex)
             {
                 _logger.LogError("Ocurrió un error al intentar obtener la lista de Ventas de ese IdUsuario: " + ex.Message);
+                _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
+                _apiResponse.Exepciones = new List<string> { ex.ToString() };
+                return _apiResponse;
+            }
+        }
+
+        public async Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoUpdateDto> productos)
+        {
+            var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(idUsuario);
+            if (existe_idUsuario == null)
+            {
+                _logger.LogError("No existe usuario con el idUsuario enviado.");
+                _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                return _apiResponse;
+            }
+            if (productos.Count == 0)
+            {
+                _logger.LogError("La lista de productos para vender esta vacia.");
+                _apiResponse.FueExitoso = false;
+                _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                return _apiResponse;
+            }
+            try
+            {
+                Venta venta = new Venta();
+                List<string> nombres = productos.Select(p => p.Descripciones).ToList();
+                string comentario = string.Join(" - ", nombres);
+                venta.Comentarios = comentario;
+                venta.IdUsuario = idUsuario;
+                await _repository.Crear(venta!); //creo la venta
+                List<Producto> productosFinales = new List<Producto>();
+                foreach (ProductoUpdateDto p in productos)
+                {
+                    var producto = await _repositoryProducto.ObtenerPorId(p.Id);
+                    if (producto == null)
+                    {
+                        _logger.LogError("Un producto de la lista enviada no existe. Verificar los Ids enviados");
+                        _apiResponse.FueExitoso = false;
+                        _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
+                        return _apiResponse;
+                    }
+                    productosFinales.Add(producto);
+                }
+                foreach (Producto p in productosFinales)  
+                {
+                    ProductoVendido productoVendido = new ProductoVendido();
+                    productoVendido.IdVenta = venta.Id;
+                    productoVendido.IdProducto = p.Id;
+                    productoVendido.Stock = p.Stock;
+                    await _repositoryProductoVendido.Crear(productoVendido!); //creo los productos vendidos
+                }
+                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
+                _apiResponse.Resultado = _mapper.Map<VentaDto>(venta);
+                return _apiResponse;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Ocurrió un error al intentar crear la Venta: " + ex.Message);
                 _apiResponse.FueExitoso = false;
                 _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
                 _apiResponse.Exepciones = new List<string> { ex.ToString() };

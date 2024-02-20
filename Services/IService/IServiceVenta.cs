@@ -1,5 +1,6 @@
 ﻿using Proyecto_Final.Models.APIResponse;
 using Proyecto_Final.DTOs.VentaDto;
+using Proyecto_Final.DTOs.ProductoDto;
 
 namespace Proyecto_Final.Services.IService
 {
@@ -11,5 +12,6 @@ namespace Proyecto_Final.Services.IService
         Task<APIResponse> CrearVenta(VentaCreateDto ventaCreate);
         Task<APIResponse> ModificarVenta(VentaUpdateDto ventaUpdate);
         Task<APIResponse> EliminarVenta(int id);
+        Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoUpdateDto> productos);
     }
 }

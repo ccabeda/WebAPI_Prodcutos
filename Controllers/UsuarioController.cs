@@ -34,7 +34,7 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet(("{id}"), Name = "GetUsuariobyId")]
+        [HttpGet(("Id/{id}"), Name = "GetUsuariobyId")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -52,13 +52,13 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet(("UserName/{username}"), Name = "GetUsuariobyUserName")]
+        [HttpGet(("{nombreDeUsuario}"))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> GetUsuarioByUserName(string username)
+        public async Task<ActionResult<APIResponse>> GetUsuarioByUserName(string nombreDeUsuario)
         {
-            var resultado = await _service.ObtenerUsuarioPorNombreUsuario(username);
+            var resultado = await _service.ObtenerUsuarioPorNombreUsuario(nombreDeUsuario);
             switch (resultado.EstadoRespuesta)
             {
                 case HttpStatusCode.BadRequest:
@@ -70,13 +70,13 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet(("{username}/Login/{password}"), Name = "Login")]
+        [HttpGet(("{usuario}/{password}"))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> Login(string username, string password)
+        public async Task<ActionResult<APIResponse>> Login(string usuario, string password)
         {
-            var resultado = await _service.IniciarSesion(username, password);
+            var resultado = await _service.IniciarSesion(usuario, password);
             switch (resultado.EstadoRespuesta)
             {
                 case HttpStatusCode.BadRequest:

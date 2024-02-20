@@ -37,6 +37,18 @@ builder.Services.AddAutoMapper(typeof(AutomapperConfig));
 //APIResponse (para que todos los endpoints devuelvan lo mismo)
 builder.Services.AddScoped<APIResponse>();
 
+//conexión con el frontend
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyMethod();
+        policy.AllowAnyOrigin();
+        policy.AllowAnyHeader();
+    });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,6 +57,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 

@@ -35,7 +35,7 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet("IdUsuario/{idUsuario}")]
+        [HttpGet("{idUsuario}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] //documentar estado de respuesta
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -53,7 +53,7 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet(("{id}"), Name = "GetProductoVendidobyId")]
+        [HttpGet(("Id/{id}"), Name = "GetProductoVendidobyId")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

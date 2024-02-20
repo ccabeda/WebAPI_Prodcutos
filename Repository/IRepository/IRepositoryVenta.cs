@@ -1,4 +1,5 @@
-﻿using Proyecto_Final.Models;
+﻿using Proyecto_Final.DTOs.ProductoDto;
+using Proyecto_Final.Models;
 
 namespace Proyecto_Final.Repository.IRepository
 {

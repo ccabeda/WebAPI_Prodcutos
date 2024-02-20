@@ -174,58 +174,14 @@
   },
   {
     "ContainingType": "Proyecto_Final.Controllers.ProductoController",
-    "Method": "GetProducto",
-    "RelativePath": "api/Producto/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
     "Method": "DeleteProducto",
-    "RelativePath": "api/Producto/{id}",
+    "RelativePath": "api/Producto/{idProducto}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "idProducto",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -272,13 +228,57 @@
   {
     "ContainingType": "Proyecto_Final.Controllers.ProductoController",
     "Method": "GetProductosByIdUsuario",
-    "RelativePath": "api/Producto/IdUsuario/{idUsuario}",
+    "RelativePath": "api/Producto/{idUsuario}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "Method": "GetProducto",
+    "RelativePath": "api/Producto/Id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -459,50 +459,6 @@
   },
   {
     "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
-    "Method": "GetProductoVendido",
-    "RelativePath": "api/ProductoVendido/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "DeleteProductoVendido",
     "RelativePath": "api/ProductoVendido/{id}",
     "HttpMethod": "DELETE",
@@ -557,13 +513,57 @@
   {
     "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "GetProductosVendidosByIdUsuario",
-    "RelativePath": "api/ProductoVendido/IdUsuario/{idUsuario}",
+    "RelativePath": "api/ProductoVendido/{idUsuario}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "Method": "GetProductoVendido",
+    "RelativePath": "api/ProductoVendido/Id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -744,50 +744,6 @@
   },
   {
     "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
-    "Method": "GetUsuario",
-    "RelativePath": "api/Usuario/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
     "Method": "DeleteUsuario",
     "RelativePath": "api/Usuario/{id}",
     "HttpMethod": "DELETE",
@@ -841,14 +797,58 @@
   },
   {
     "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
-    "Method": "Login",
-    "RelativePath": "api/Usuario/{username}/Login/{password}",
+    "Method": "GetUsuarioByUserName",
+    "RelativePath": "api/Usuario/{nombreDeUsuario}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
+        "Name": "nombreDeUsuario",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "api/Usuario/{usuario}/{password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuario",
         "Type": "System.String",
         "IsRequired": true
       },
@@ -890,15 +890,15 @@
   },
   {
     "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
-    "Method": "GetUsuarioByUserName",
-    "RelativePath": "api/Usuario/UserName/{username}",
+    "Method": "GetUsuario",
+    "RelativePath": "api/Usuario/Id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1131,6 +1131,64 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
+      },
+      {
+        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "Method": "CreateVentaConIdUsuario",
+    "RelativePath": "api/Venta/{idUsuario}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "productos",
+        "Type": "System.Collections.Generic.List\u00601[[Proyecto_Final.DTOs.ProductoDto.ProductoUpdateDto, WebApi_Proyecto_Final, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],

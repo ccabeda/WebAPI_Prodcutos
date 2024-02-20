@@ -34,7 +34,7 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet("IdUsuario/{idUsuario}")]
+        [HttpGet("{idUsuario}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -52,7 +52,7 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpGet(("{id}"), Name = "GetProductobyId")]
+        [HttpGet(("Id/{id}"), Name = "GetProductobyId")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -112,14 +112,14 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{idProducto}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> DeleteProducto(int id)
+        public async Task<ActionResult<APIResponse>> DeleteProducto(int idProducto)
         {
-            var resultado = await _service.EliminarProducto(id);
+            var resultado = await _service.EliminarProducto(idProducto);
             switch (resultado.EstadoRespuesta)
             {
                 case HttpStatusCode.BadRequest:
