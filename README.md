@@ -36,6 +36,7 @@ Para este proyecto, utilice el metodo Scafold de "Database First" partiendo de u
    	- [Get All Ventas by IdUsuario](#Get-All-Ventas-by-IdUsuario)
   - [Get Venta by Id](#Get-Venta-by-Id)
   - [Create Venta](#Create-Venta)
+  - [Create Venta by IdUsuario](#Create-Venta-by-IdUsuario)
   - [Update Venta](#Update-Venta)
   - [Delete Venta](#Delete-Venta)
  
@@ -500,6 +501,30 @@ Crea una venta.
 - Respuesta:  
 	- 200: Venta
 	- 400, 404, 409: Error
+
+### Create Venta by IdUsuario
+Crea una venta a aprtir de una lista de productos. Ademas, por cada producto de la lista, crea un nuevo ProductoVendido con sus datos.
+
+```http
+  POST localhost:{su_puerto}/api/Venta/idUsuario
+```
+
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| idUsuario | `int` | **Requerido** por URL.  |
+
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| List<Productos> | `ProductoUpdateDto` | **Requerido** por body.  |
+
+- URL: https://localhost:7104/api/Venta
+- Metodo: POST
+- Parametros:
+  	IdUsuario y lista de datos personales en formato Json (body)
+- Respuesta:  
+	- 200: Venta
+	- 400, 404, 409: Error
+
 
 ### Update Venta
 Modifica una venta.
