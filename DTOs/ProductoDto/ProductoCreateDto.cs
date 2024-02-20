@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Final.DTOs.ProductoDto
+﻿namespace WebApi_Proyecto_Final.DTOs.ProductoDto
 {
     public class ProductoCreateDto
     {

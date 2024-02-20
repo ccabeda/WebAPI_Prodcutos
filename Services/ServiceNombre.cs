@@ -1,8 +1,8 @@
-﻿using Proyecto_Final.Models.APIResponse;
-using Proyecto_Final.Services.IService;
+﻿using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Services.IService;
 using System.Net;
 
-namespace Proyecto_Final.Services
+namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceNombre : IServiceNombre
     {

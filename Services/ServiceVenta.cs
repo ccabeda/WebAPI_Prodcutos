@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using Proyecto_Final.Models;
-using Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Models.APIResponse;
 using System.Net;
-using Proyecto_Final.DTOs.VentaDto;
-using Proyecto_Final.Repository.IRepository;
-using Proyecto_Final.Services.IService;
-using Proyecto_Final.DTOs.ProductoDto;
+using WebApi_Proyecto_Final.DTOs.VentaDto;
+using WebApi_Proyecto_Final.Repository.IRepository;
+using WebApi_Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.DTOs.ProductoDto;
 
-namespace Proyecto_Final.Services
+namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceVenta : IServiceVenta
     {
@@ -223,33 +223,27 @@ namespace Proyecto_Final.Services
             }
         }
 
-        public async Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoUpdateDto> productos)
+        public async Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoDtoParaVentas> productos)
         {
-            var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(idUsuario);
-            if (existe_idUsuario == null)
-            {
-                _logger.LogError("No existe usuario con el idUsuario enviado.");
-                _apiResponse.FueExitoso = false;
-                _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
-                return _apiResponse;
-            }
-            if (productos.Count == 0)
-            {
-                _logger.LogError("La lista de productos para vender esta vacia.");
-                _apiResponse.FueExitoso = false;
-                _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
-                return _apiResponse;
-            }
             try
             {
-                Venta venta = new Venta();
-                List<string> nombres = productos.Select(p => p.Descripciones).ToList();
-                string comentario = string.Join(" - ", nombres);
-                venta.Comentarios = comentario;
-                venta.IdUsuario = idUsuario;
-                await _repository.Crear(venta!); //creo la venta
+                var existe_idUsuario = await _repositoryUsuario.ObtenerPorId(idUsuario);
+                if (existe_idUsuario == null)
+                {
+                    _logger.LogError("No existe usuario con el idUsuario enviado.");
+                    _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                    return _apiResponse;
+                }
+                if (productos.Count == 0)
+                {
+                    _logger.LogError("La lista de productos para vender esta vacia.");
+                    _apiResponse.FueExitoso = false;
+                    _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
+                    return _apiResponse;
+                }
                 List<Producto> productosFinales = new List<Producto>();
-                foreach (ProductoUpdateDto p in productos)
+                foreach (ProductoDtoParaVentas p in productos)
                 {
                     var producto = await _repositoryProducto.ObtenerPorId(p.Id);
                     if (producto == null)
@@ -259,14 +253,31 @@ namespace Proyecto_Final.Services
                         _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                         return _apiResponse;
                     }
+                    producto!.Stock -= p.Stock; //actualizo stock
+                    if (producto.Stock < 0)
+                    {
+                        _logger.LogError("La cantidad de stock es insuficiente.");
+                        _apiResponse.FueExitoso = false;
+                        _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
+                        return _apiResponse;
+                    }
+                    await _repositoryProducto.Actualizar(producto);
                     productosFinales.Add(producto);
                 }
-                foreach (Producto p in productosFinales)  
+                Venta venta = new Venta();
+                List<string> nombres = productosFinales.Select(p => p.Descripciones).ToList();
+                string comentario = string.Join(" - ", nombres);
+                venta.Comentarios = comentario;
+                venta.IdUsuario = idUsuario;
+                await _repository.Crear(venta!); //creo la venta
+                foreach (Producto p in productosFinales)
                 {
+                    int puntero = 0;
                     ProductoVendido productoVendido = new ProductoVendido();
                     productoVendido.IdVenta = venta.Id;
                     productoVendido.IdProducto = p.Id;
-                    productoVendido.Stock = p.Stock;
+                    productoVendido.Stock = productos[0].Stock;
+                    puntero++;
                     await _repositoryProductoVendido.Crear(productoVendido!); //creo los productos vendidos
                 }
                 _apiResponse.EstadoRespuesta = HttpStatusCode.OK;

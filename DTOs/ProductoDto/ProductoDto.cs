@@ -1,6 +1,6 @@
-﻿using Proyecto_Final.DTOs.ProductoVendidoDto;
+﻿using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
 
-namespace Proyecto_Final.DTOs.ProductoDto
+namespace WebApi_Proyecto_Final.DTOs.ProductoDto
 {
     public class ProductoDto
     {

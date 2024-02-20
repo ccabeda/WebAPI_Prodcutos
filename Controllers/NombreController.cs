@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Proyecto_Final.Models.APIResponse;
-using Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Services.IService;
 using System.Net;
 
-namespace Proyecto_Final.Controllers
+namespace WebApi_Proyecto_Final.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,7 +24,7 @@ namespace Proyecto_Final.Controllers
             switch (resultado.EstadoRespuesta)
             {
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }

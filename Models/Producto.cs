@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Final.Models
+﻿namespace WebApi_Proyecto_Final.Models
 {
     public class Producto
     {

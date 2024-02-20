@@ -1,6 +1,6 @@
-﻿using Proyecto_Final.Models;
+﻿using WebApi_Proyecto_Final.Models;
 
-namespace Proyecto_Final.Repository.IRepository
+namespace WebApi_Proyecto_Final.Repository.IRepository
 {
     public interface IRepositoryUsuario : IRepositoryGeneric<Usuario>
     {

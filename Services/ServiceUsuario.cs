@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using Proyecto_Final.Models;
-using Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Models.APIResponse;
 using System.Net;
-using Proyecto_Final.DTOs.UsuarioDto;
-using Proyecto_Final.Repository.IRepository;
-using Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.DTOs.UsuarioDto;
+using WebApi_Proyecto_Final.Repository.IRepository;
+using WebApi_Proyecto_Final.Services.IService;
 
-namespace Proyecto_Final.Services
+namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceUsuario : IServiceUsuario
     {

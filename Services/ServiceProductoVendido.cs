@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using Proyecto_Final.Models;
-using Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Models.APIResponse;
 using System.Net;
-using Proyecto_Final.DTOs.ProductoVendidoDto;
-using Proyecto_Final.Repository.IRepository;
-using Proyecto_Final.Services.IService;
-using Microsoft.AspNetCore.Mvc;
+using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
+using WebApi_Proyecto_Final.Repository.IRepository;
+using WebApi_Proyecto_Final.Services.IService;
 
-namespace Proyecto_Final.Services
+namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceProductoVendido : IServiceProductoVendido
     {
@@ -224,7 +223,7 @@ namespace Proyecto_Final.Services
                     }
                     lista_de_id_yaUsada.Add(i.Id); //agrego el Id ya usado para que no vuelva a usarse
                 }
-                _apiResponse.Resultado = lista_final; //los agrego a mi objeto de respuesta
+                _apiResponse.Resultado = _mapper.Map<List<ProductoVendidoDTO>>(lista_final); //los agrego a mi objeto de respuesta
                 _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
                 return _apiResponse;
             }

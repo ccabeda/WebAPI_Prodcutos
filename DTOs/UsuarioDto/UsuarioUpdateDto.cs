@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Final.DTOs.UsuarioDto
+﻿namespace WebApi_Proyecto_Final.DTOs.UsuarioDto
 {
     public class UsuarioUpdateDto
     {

@@ -1,6 +1,6 @@
 [
   {
-    "ContainingType": "Proyecto_Final.Controllers.NombreController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.NombreController",
     "Method": "GetNombre",
     "RelativePath": "api/Nombre",
     "HttpMethod": "GET",
@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "GetProductos",
     "RelativePath": "api/Producto",
     "HttpMethod": "GET",
@@ -47,7 +47,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -67,7 +67,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "CreateProducto",
     "RelativePath": "api/Producto",
     "HttpMethod": "POST",
@@ -76,7 +76,7 @@
     "Parameters": [
       {
         "Name": "productoCreate",
-        "Type": "Proyecto_Final.DTOs.ProductoDto.ProductoCreateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.ProductoDto.ProductoCreateDto",
         "IsRequired": true
       }
     ],
@@ -100,7 +100,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "UpdateProducto",
     "RelativePath": "api/Producto",
     "HttpMethod": "PUT",
@@ -129,7 +129,7 @@
     "Parameters": [
       {
         "Name": "productoUpdate",
-        "Type": "Proyecto_Final.DTOs.ProductoDto.ProductoUpdateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.ProductoDto.ProductoUpdateDto",
         "IsRequired": true
       }
     ],
@@ -153,7 +153,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "DeleteProducto",
     "RelativePath": "api/Producto/{idProducto}",
     "HttpMethod": "DELETE",
@@ -206,7 +206,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -226,7 +226,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "GetProductosByIdUsuario",
     "RelativePath": "api/Producto/{idUsuario}",
     "HttpMethod": "GET",
@@ -250,7 +250,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -270,7 +270,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoController",
     "Method": "GetProducto",
     "RelativePath": "api/Producto/Id/{id}",
     "HttpMethod": "GET",
@@ -294,7 +294,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -314,7 +314,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "GetProductosVendidos",
     "RelativePath": "api/ProductoVendido",
     "HttpMethod": "GET",
@@ -332,7 +332,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -352,7 +352,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "CreateProducto",
     "RelativePath": "api/ProductoVendido",
     "HttpMethod": "POST",
@@ -361,7 +361,7 @@
     "Parameters": [
       {
         "Name": "productoVendidoCreate",
-        "Type": "Proyecto_Final.DTOs.ProductoVendidoDto.ProductoVendidoCreateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.ProductoVendidoDto.ProductoVendidoCreateDto",
         "IsRequired": true
       }
     ],
@@ -385,7 +385,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -405,7 +405,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "UpdateProductoVendido",
     "RelativePath": "api/ProductoVendido",
     "HttpMethod": "PUT",
@@ -414,7 +414,7 @@
     "Parameters": [
       {
         "Name": "productoUpdate",
-        "Type": "Proyecto_Final.DTOs.ProductoVendidoDto.ProductoVendidoUpdateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.ProductoVendidoDto.ProductoVendidoUpdateDto",
         "IsRequired": true
       }
     ],
@@ -438,7 +438,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -458,7 +458,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "DeleteProductoVendido",
     "RelativePath": "api/ProductoVendido/{id}",
     "HttpMethod": "DELETE",
@@ -491,7 +491,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -511,7 +511,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "GetProductosVendidosByIdUsuario",
     "RelativePath": "api/ProductoVendido/{idUsuario}",
     "HttpMethod": "GET",
@@ -535,7 +535,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -555,7 +555,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.ProductoVendidoController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.ProductoVendidoController",
     "Method": "GetProductoVendido",
     "RelativePath": "api/ProductoVendido/Id/{id}",
     "HttpMethod": "GET",
@@ -579,7 +579,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -599,7 +599,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "GetUsuarios",
     "RelativePath": "api/Usuario",
     "HttpMethod": "GET",
@@ -617,7 +617,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -637,7 +637,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "CreateUsuario",
     "RelativePath": "api/Usuario",
     "HttpMethod": "POST",
@@ -646,7 +646,7 @@
     "Parameters": [
       {
         "Name": "usuarioCreate",
-        "Type": "Proyecto_Final.DTOs.UsuarioDto.UsuarioCreateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.UsuarioDto.UsuarioCreateDto",
         "IsRequired": true
       }
     ],
@@ -670,7 +670,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -690,7 +690,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "UpdateUsuario",
     "RelativePath": "api/Usuario",
     "HttpMethod": "PUT",
@@ -699,7 +699,7 @@
     "Parameters": [
       {
         "Name": "usuarioUpdate",
-        "Type": "Proyecto_Final.DTOs.UsuarioDto.UsuarioUpdateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.UsuarioDto.UsuarioUpdateDto",
         "IsRequired": true
       }
     ],
@@ -723,7 +723,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -743,7 +743,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "DeleteUsuario",
     "RelativePath": "api/Usuario/{id}",
     "HttpMethod": "DELETE",
@@ -776,7 +776,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -796,7 +796,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "GetUsuarioByUserName",
     "RelativePath": "api/Usuario/{nombreDeUsuario}",
     "HttpMethod": "GET",
@@ -820,7 +820,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -840,7 +840,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "Login",
     "RelativePath": "api/Usuario/{usuario}/{password}",
     "HttpMethod": "GET",
@@ -869,7 +869,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -889,7 +889,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.UsuarioController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "GetUsuario",
     "RelativePath": "api/Usuario/Id/{id}",
     "HttpMethod": "GET",
@@ -913,7 +913,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -933,7 +933,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
     "Method": "GetVentas",
     "RelativePath": "api/Venta",
     "HttpMethod": "GET",
@@ -951,7 +951,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -971,7 +971,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
     "Method": "CreateVenta",
     "RelativePath": "api/Venta",
     "HttpMethod": "POST",
@@ -980,7 +980,7 @@
     "Parameters": [
       {
         "Name": "ventaCreate",
-        "Type": "Proyecto_Final.DTOs.VentaDto.VentaCreateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.VentaDto.VentaCreateDto",
         "IsRequired": true
       }
     ],
@@ -1004,7 +1004,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1024,7 +1024,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
     "Method": "UpdateVenta",
     "RelativePath": "api/Venta",
     "HttpMethod": "PUT",
@@ -1033,7 +1033,7 @@
     "Parameters": [
       {
         "Name": "ventaUpdate",
-        "Type": "Proyecto_Final.DTOs.VentaDto.VentaUpdateDto",
+        "Type": "WebApi_Proyecto_Final.DTOs.VentaDto.VentaUpdateDto",
         "IsRequired": true
       }
     ],
@@ -1057,7 +1057,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1077,51 +1077,7 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
-    "Method": "GetVenta",
-    "RelativePath": "api/Venta/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
     "Method": "DeleteVenta",
     "RelativePath": "api/Venta/{id}",
     "HttpMethod": "DELETE",
@@ -1154,7 +1110,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1174,7 +1130,51 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
+    "Method": "GetVentasByIdUsuario",
+    "RelativePath": "api/Venta/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
     "Method": "CreateVentaConIdUsuario",
     "RelativePath": "api/Venta/{idUsuario}",
     "HttpMethod": "POST",
@@ -1188,7 +1188,7 @@
       },
       {
         "Name": "productos",
-        "Type": "System.Collections.Generic.List\u00601[[Proyecto_Final.DTOs.ProductoDto.ProductoUpdateDto, WebApi_Proyecto_Final, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi_Proyecto_Final.DTOs.ProductoDto.ProductoDtoParaVentas, WebApi_Proyecto_Final, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
@@ -1212,7 +1212,7 @@
         "StatusCode": 409
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1232,15 +1232,15 @@
     ]
   },
   {
-    "ContainingType": "Proyecto_Final.Controllers.VentaController",
-    "Method": "GetVentasByIdUsuario",
-    "RelativePath": "api/Venta/IdUsuario/{idUsuario}",
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.VentaController",
+    "Method": "GetVenta",
+    "RelativePath": "api/Venta/Id/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "idUsuario",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -1256,7 +1256,7 @@
         "StatusCode": 400
       },
       {
-        "Type": "Proyecto_Final.Models.APIResponse.APIResponse",
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",

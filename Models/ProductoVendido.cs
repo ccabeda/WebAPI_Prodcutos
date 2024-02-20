@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Proyecto_Final.Models
+namespace WebApi_Proyecto_Final.Models
 {
     public class ProductoVendido
     {

@@ -1,4 +1,4 @@
-﻿namespace Proyecto_Final.Repository.IRepository
+﻿namespace WebApi_Proyecto_Final.Repository.IRepository
 {
     public interface IRepositoryGeneric<T> where T : class
     {

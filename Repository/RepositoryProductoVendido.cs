@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Proyecto_Final.Database;
-using Proyecto_Final.Models;
-using Proyecto_Final.Repository.IRepository;
+using WebApi_Proyecto_Final.Database;
+using WebApi_Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Repository.IRepository;
 
-namespace Proyecto_Final.Repository
+namespace WebApi_Proyecto_Final.Repository
 {
     public class RepositoryProductoVendido : IRepositoryProductoVendido
     {

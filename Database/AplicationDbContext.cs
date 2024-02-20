@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Models;
 
-namespace Proyecto_Final.Database
+namespace WebApi_Proyecto_Final.Database
 {
     public partial class AplicationDbContext : DbContext
     {

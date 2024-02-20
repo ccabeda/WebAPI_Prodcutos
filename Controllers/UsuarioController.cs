@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.DTOs.UsuarioDto;
+using WebApi_Proyecto_Final.Services.IService;
 using System.Net;
-using Proyecto_Final.DTOs.UsuarioDto;
-using Proyecto_Final.Services.IService;
 
-namespace Proyecto_Final.Controllers
+namespace WebApi_Proyecto_Final.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -28,7 +28,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado); //para que funcione el frontend
                 default:
                     return NotFound(resultado);
             }
@@ -46,7 +46,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
@@ -64,7 +64,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
@@ -82,7 +82,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
@@ -101,7 +101,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:
@@ -122,7 +122,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:
@@ -143,7 +143,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:

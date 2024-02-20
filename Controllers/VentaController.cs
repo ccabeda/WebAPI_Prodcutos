@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.DTOs.VentaDto;
+using WebApi_Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.DTOs.ProductoDto;
 using System.Net;
-using Proyecto_Final.DTOs.VentaDto;
-using Proyecto_Final.Services.IService;
-using Proyecto_Final.DTOs.ProductoDto;
-using System.Collections.Generic;
 
-namespace Proyecto_Final.Controllers
+
+namespace WebApi_Proyecto_Final.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -30,13 +30,13 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
         }
 
-        [HttpGet("IdUsuario/{idUsuario}")]
+        [HttpGet("{idUsuario}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] //documentar estado de respuesta
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -48,13 +48,13 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
         }
 
-        [HttpGet(("{id}"), Name = "GetVentabyId")]
+        [HttpGet(("Id/{id}"), Name = "GetVentabyId")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -66,7 +66,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 default:
                     return NotFound(resultado);
             }
@@ -85,7 +85,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:
@@ -98,7 +98,7 @@ namespace Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> CreateVentaConIdUsuario(int idUsuario,[FromBody] List<ProductoUpdateDto> productos)
+        public async Task<ActionResult<APIResponse>> CreateVentaConIdUsuario(int idUsuario,[FromBody] List<ProductoDtoParaVentas> productos)
         {
             var resultado = await _service.CrearVentaConIdUsuario(idUsuario, productos);
             switch (resultado.EstadoRespuesta)
@@ -106,7 +106,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:
@@ -127,7 +127,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:
@@ -148,7 +148,7 @@ namespace Proyecto_Final.Controllers
                 case HttpStatusCode.BadRequest:
                     return BadRequest(resultado);
                 case HttpStatusCode.OK:
-                    return Ok(resultado);
+                    return Ok(resultado.Resultado);
                 case HttpStatusCode.Conflict:
                     return Conflict(resultado);
                 default:

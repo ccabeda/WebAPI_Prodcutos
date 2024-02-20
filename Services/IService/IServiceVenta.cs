@@ -1,8 +1,8 @@
-﻿using Proyecto_Final.Models.APIResponse;
-using Proyecto_Final.DTOs.VentaDto;
-using Proyecto_Final.DTOs.ProductoDto;
+﻿using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.DTOs.VentaDto;
+using WebApi_Proyecto_Final.DTOs.ProductoDto;
 
-namespace Proyecto_Final.Services.IService
+namespace WebApi_Proyecto_Final.Services.IService
 {
     public interface IServiceVenta
     {
@@ -12,6 +12,6 @@ namespace Proyecto_Final.Services.IService
         Task<APIResponse> CrearVenta(VentaCreateDto ventaCreate);
         Task<APIResponse> ModificarVenta(VentaUpdateDto ventaUpdate);
         Task<APIResponse> EliminarVenta(int id);
-        Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoUpdateDto> productos);
+        Task<APIResponse> CrearVentaConIdUsuario(int idUsuario, List<ProductoDtoParaVentas> productos);
     }
 }

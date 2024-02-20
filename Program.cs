@@ -1,12 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using Proyecto_Final.Database;
-using Proyecto_Final.Models;
-using Proyecto_Final.Models.APIResponse;
-using Proyecto_Final.Mappers;
-using Proyecto_Final.Repository;
-using Proyecto_Final.Repository.IRepository;
-using Proyecto_Final.Services;
-using Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.Database;
+using WebApi_Proyecto_Final.Models;
+using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.Mappers;
+using WebApi_Proyecto_Final.Repository;
+using WebApi_Proyecto_Final.Repository.IRepository;
+using WebApi_Proyecto_Final.Services;
+using WebApi_Proyecto_Final.Services.IService;
 
 var builder = WebApplication.CreateBuilder(args);
 

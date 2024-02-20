@@ -1,7 +1,7 @@
-﻿using Proyecto_Final.Models.APIResponse;
-using Proyecto_Final.DTOs.UsuarioDto;
+﻿using WebApi_Proyecto_Final.Models.APIResponse;
+using WebApi_Proyecto_Final.DTOs.UsuarioDto;
 
-namespace Proyecto_Final.Services.IService
+namespace WebApi_Proyecto_Final.Services.IService
 {
     public interface IServiceUsuario
     {

@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace Proyecto_Final.Models.APIResponse
+namespace WebApi_Proyecto_Final.Models.APIResponse
 {
     public class APIResponse //clase para encapsular las respuestas de los endpoints y que sean iguales
     {
