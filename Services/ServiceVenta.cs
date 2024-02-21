@@ -243,7 +243,7 @@ namespace WebApi_Proyecto_Final.Services
                     return _apiResponse;
                 }
                 List<Producto> productosFinales = new List<Producto>();
-                foreach (ProductoDtoParaVentas p in productos)
+                foreach(ProductoDtoParaVentas p in productos)
                 {
                     var producto = await _repositoryProducto.ObtenerPorId(p.Id);
                     if (producto == null)
@@ -253,14 +253,18 @@ namespace WebApi_Proyecto_Final.Services
                         _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                         return _apiResponse;
                     }
-                    producto!.Stock -= p.Stock; //actualizo stock
-                    if (producto.Stock < 0)
+                    if (producto.Stock < p.Stock)
                     {
-                        _logger.LogError("La cantidad de stock es insuficiente.");
+                        _logger.LogError("La cantidad de stock de "+ producto.Descripciones +" es insuficiente.");
                         _apiResponse.FueExitoso = false;
                         _apiResponse.EstadoRespuesta = HttpStatusCode.Conflict;
                         return _apiResponse;
                     }
+                }
+                foreach (ProductoDtoParaVentas p in productos)
+                {
+                    var producto = await _repositoryProducto.ObtenerPorId(p.Id);
+                    producto!.Stock -= p.Stock; //actualizo stock
                     await _repositoryProducto.Actualizar(producto);
                     productosFinales.Add(producto);
                 }
