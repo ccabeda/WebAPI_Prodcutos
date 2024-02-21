@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\controllers\\ventacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:controllers\\ventacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|solutionrelative:services\\serviceventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABB4945F-C530-4F2E-824E-946FC6D39A2C}|WebApi_Proyecto_Final.csproj|c:\\users\\cabed\\onedrive\\desktop\\curso\\c_sharp\\webapi_proyecto_final\\services\\servicenombre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -194,7 +194,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -206,25 +206,24 @@
               "RelativeToolTip": "Services\\ServiceNombre.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T16:36:42.266Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T16:36:42.266Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "ServiceVenta.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
               "RelativeDocumentMoniker": "Services\\ServiceVenta.cs",
               "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Services\\ServiceVenta.cs",
               "RelativeToolTip": "Services\\ServiceVenta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAtAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUBAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-15T05:53:09.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AutomapperConfig.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\AutomapperConfig.cs",
               "RelativeDocumentMoniker": "AutomapperConfig.cs",
@@ -232,12 +231,11 @@
               "RelativeToolTip": "AutomapperConfig.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T08:18:08.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T08:18:08.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -245,12 +243,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAAAAgAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:08:11.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:08:11.717Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Database\\AplicationDbContext.cs",
               "RelativeDocumentMoniker": "Database\\AplicationDbContext.cs",
@@ -258,12 +255,11 @@
               "RelativeToolTip": "Database\\AplicationDbContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:27:12.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:27:12.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "NombreController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\NombreController.cs",
               "RelativeDocumentMoniker": "Controllers\\NombreController.cs",
@@ -271,12 +267,11 @@
               "RelativeToolTip": "Controllers\\NombreController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T16:33:40.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T16:33:40.695Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ProductoController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductoController.cs",
@@ -284,12 +279,11 @@
               "RelativeToolTip": "Controllers\\ProductoController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:08:50.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:08:50.221Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProductoVendidoController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\ProductoVendidoController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductoVendidoController.cs",
@@ -297,12 +291,11 @@
               "RelativeToolTip": "Controllers\\ProductoVendidoController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T08:15:08.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T08:15:08.937Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
@@ -310,21 +303,19 @@
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:47:23.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:47:23.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VentaController.cs",
               "DocumentMoniker": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\VentaController.cs",
               "RelativeDocumentMoniker": "Controllers\\VentaController.cs",
               "ToolTip": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\Controllers\\VentaController.cs",
               "RelativeToolTip": "Controllers\\VentaController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:50:19.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:50:19.926Z"
             },
             {
               "$type": "Document",
@@ -336,8 +327,7 @@
               "RelativeToolTip": "Services\\ServiceProducto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:05:00.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:05:00.529Z"
             },
             {
               "$type": "Document",
@@ -349,8 +339,7 @@
               "RelativeToolTip": "Services\\ServiceProductoVendido.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:04:50.112Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:04:50.112Z"
             },
             {
               "$type": "Document",
@@ -362,8 +351,7 @@
               "RelativeToolTip": "Services\\ServiceUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:53:40.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:53:40.682Z"
             },
             {
               "$type": "Document",
@@ -375,8 +363,7 @@
               "RelativeToolTip": "Services\\IService\\IServiceVenta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:53:12.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:53:12.545Z"
             },
             {
               "$type": "Document",
@@ -388,8 +375,7 @@
               "RelativeToolTip": "Services\\IService\\IServiceUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T01:34:32.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T01:34:32.954Z"
             },
             {
               "$type": "Document",
@@ -401,8 +387,7 @@
               "RelativeToolTip": "Services\\IService\\IServiceProductoVendido.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:40:56.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:40:56.381Z"
             },
             {
               "$type": "Document",
@@ -414,8 +399,7 @@
               "RelativeToolTip": "Services\\IService\\IServiceProducto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:12:15.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:12:15.448Z"
             },
             {
               "$type": "Document",
@@ -427,8 +411,7 @@
               "RelativeToolTip": "Services\\IService\\IServiceNombre.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T16:35:01.384Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T16:35:01.384Z"
             },
             {
               "$type": "Document",
@@ -440,8 +423,7 @@
               "RelativeToolTip": "Repository\\RepositoryVenta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:55:57.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:55:57.367Z"
             },
             {
               "$type": "Document",
@@ -453,8 +435,7 @@
               "RelativeToolTip": "Repository\\RepositoryUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:01:35.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:01:35.02Z"
             },
             {
               "$type": "Document",
@@ -466,8 +447,7 @@
               "RelativeToolTip": "Repository\\RepositoryProductoVendido.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:45:24.37Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:45:24.37Z"
             },
             {
               "$type": "Document",
@@ -479,8 +459,7 @@
               "RelativeToolTip": "Repository\\RepositoryProducto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:53:55.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:53:55.842Z"
             },
             {
               "$type": "Document",
@@ -492,8 +471,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryVenta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:56:38.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:56:38.854Z"
             },
             {
               "$type": "Document",
@@ -505,8 +483,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryUsuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:56:11.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:56:11.95Z"
             },
             {
               "$type": "Document",
@@ -518,8 +495,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryProductoVendido.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T15:00:33.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T15:00:33.617Z"
             },
             {
               "$type": "Document",
@@ -531,8 +507,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryProducto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T06:53:42.836Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T06:53:42.836Z"
             },
             {
               "$type": "Document",
@@ -544,8 +519,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IRepositoryGeneric.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:57:10.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:57:10.69Z"
             },
             {
               "$type": "Document",
@@ -557,8 +531,7 @@
               "RelativeToolTip": "DTOs\\VentaDto\\VentaCreateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T06:28:33.469Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T06:28:33.469Z"
             },
             {
               "$type": "Document",
@@ -570,8 +543,7 @@
               "RelativeToolTip": "Models\\Venta.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T05:50:25.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T05:50:25.455Z"
             },
             {
               "$type": "Document",
@@ -583,8 +555,7 @@
               "RelativeToolTip": "Models\\Usuario.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:29:18.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:29:18.489Z"
             },
             {
               "$type": "Document",
@@ -596,8 +567,7 @@
               "RelativeToolTip": "Models\\Producto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:16:03.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:16:03.247Z"
             },
             {
               "$type": "Document",
@@ -609,8 +579,7 @@
               "RelativeToolTip": "Models\\RespuestaController\\APIResponse.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T05:06:55.497Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T05:06:55.497Z"
             },
             {
               "$type": "Document",
@@ -622,8 +591,7 @@
               "RelativeToolTip": "DTOs\\VentaDto\\VentaUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:29:00.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:29:00.869Z"
             },
             {
               "$type": "Document",
@@ -635,8 +603,7 @@
               "RelativeToolTip": "DTOs\\UsuarioDto\\UsuarioUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:28:21.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:28:21.948Z"
             },
             {
               "$type": "Document",
@@ -648,8 +615,7 @@
               "RelativeToolTip": "DTOs\\ProductoDto\\ProductoDtoParaVentas.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T07:55:38.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T07:55:38.612Z"
             },
             {
               "$type": "Document",
@@ -661,8 +627,7 @@
               "RelativeToolTip": "DTOs\\UsuarioDto\\UsuarioDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:28:04.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:28:04.819Z"
             },
             {
               "$type": "Document",
@@ -674,8 +639,7 @@
               "RelativeToolTip": "DTOs\\UsuarioDto\\UsuarioCreateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:28:00.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:28:00.184Z"
             },
             {
               "$type": "Document",
@@ -687,8 +651,7 @@
               "RelativeToolTip": "DTOs\\ProductoDto\\ProductoUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T02:37:28.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T02:37:28.023Z"
             },
             {
               "$type": "Document",
@@ -700,8 +663,7 @@
               "RelativeToolTip": "DTOs\\ProductoDto\\ProductoDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T02:36:47.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T02:36:47.149Z"
             },
             {
               "$type": "Document",
@@ -713,8 +675,7 @@
               "RelativeToolTip": "Models\\ProductoVendido.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-15T07:15:43.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-15T07:15:43.075Z"
             },
             {
               "$type": "Document",
@@ -726,8 +687,7 @@
               "RelativeToolTip": "DTOs\\ProductoDto\\ProductoCreateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T02:30:55.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T02:30:55.677Z"
             },
             {
               "$type": "Document",
@@ -739,8 +699,7 @@
               "RelativeToolTip": "DTOs\\ProductoVendidoDto\\ProductoVendidoUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:27:55.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:27:55.035Z"
             },
             {
               "$type": "Document",
@@ -752,8 +711,7 @@
               "RelativeToolTip": "DTOs\\VentaDto\\VentaDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T06:28:21.074Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T06:28:21.074Z"
             },
             {
               "$type": "Document",
@@ -765,8 +723,7 @@
               "RelativeToolTip": "DTOs\\ProductoVendidoDto\\ProductoVendidoCreateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T08:27:45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T08:27:45Z"
             },
             {
               "$type": "Document",
@@ -778,8 +735,7 @@
               "RelativeToolTip": "DTOs\\ProductoVendidoDto\\ProductoVendidoDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-20T06:13:12.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-20T06:13:12.988Z"
             },
             {
               "$type": "Document",

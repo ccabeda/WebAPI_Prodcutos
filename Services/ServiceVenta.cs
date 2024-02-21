@@ -270,13 +270,13 @@ namespace WebApi_Proyecto_Final.Services
                 venta.Comentarios = comentario;
                 venta.IdUsuario = idUsuario;
                 await _repository.Crear(venta!); //creo la venta
+                int puntero = 0;
                 foreach (Producto p in productosFinales)
                 {
-                    int puntero = 0;
                     ProductoVendido productoVendido = new ProductoVendido();
                     productoVendido.IdVenta = venta.Id;
                     productoVendido.IdProducto = p.Id;
-                    productoVendido.Stock = productos[0].Stock;
+                    productoVendido.Stock = productos[puntero].Stock;
                     puntero++;
                     await _repositoryProductoVendido.Crear(productoVendido!); //creo los productos vendidos
                 }
