@@ -242,8 +242,7 @@ namespace WebApi_Proyecto_Final.Services
                     _apiResponse.EstadoRespuesta = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                List<Producto> productosFinales = new List<Producto>();
-                foreach(ProductoDtoParaVentas p in productos)
+                foreach(ProductoDtoParaVentas p in productos) //verifico que todos los productos que se intentan vender tengan stock, si alguno no se ejecuta la venta
                 {
                     var producto = await _repositoryProducto.ObtenerPorId(p.Id);
                     if (producto == null)
@@ -261,7 +260,8 @@ namespace WebApi_Proyecto_Final.Services
                         return _apiResponse;
                     }
                 }
-                foreach (ProductoDtoParaVentas p in productos)
+                List<Producto> productosFinales = new List<Producto>();
+                foreach (ProductoDtoParaVentas p in productos) //actualizo el stock de todos los productos
                 {
                     var producto = await _repositoryProducto.ObtenerPorId(p.Id);
                     producto!.Stock -= p.Stock; //actualizo stock
@@ -275,7 +275,7 @@ namespace WebApi_Proyecto_Final.Services
                 venta.IdUsuario = idUsuario;
                 await _repository.Crear(venta!); //creo la venta
                 int puntero = 0;
-                foreach (Producto p in productosFinales)
+                foreach (Producto p in productosFinales) //creo los productos vendidos con el stock que fue vendido 
                 {
                     ProductoVendido productoVendido = new ProductoVendido();
                     productoVendido.IdVenta = venta.Id;
