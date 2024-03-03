@@ -43,7 +43,7 @@ namespace WebApi_Proyecto_Final.Repository
 
         public async Task<List<Venta>> ObtenerTodos()
         {
-            return await _context.Venta.Include(v => v.ProductoVendidos).ToListAsync();
+            return await _context.Venta.AsNoTracking().Include(v => v.ProductoVendidos).ToListAsync();
         }
 
         public async Task<List<Venta>> ObtenerPorIdUsuario(int idUsuario)
