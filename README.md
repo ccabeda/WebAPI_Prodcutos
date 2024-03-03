@@ -2,7 +2,7 @@
 -- Para esta API se utilizó la version .NET 6.0.
 
 CRUD hecho con C# y .NET (NetCore). Aplique patrones como DTO, Repository, IoC, Inyección de dependencias y mapeos (Automapper). Como base de datos utilize MS SQL Server, y se versiono en Git.
-Para este proyecto, utilice el metodo Scafold de "Database First" partiendo de una base de datos que se me entrego.
+Para este proyecto, utilice el metodo Scaffold de "Database First" partiendo de una base de datos que se me entrego.
 
 ---
 - [Nugets](#NuGets)
