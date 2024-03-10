@@ -14,20 +14,19 @@ namespace WebApi_Proyecto_Final.Services
             _logger = logger;
 
         }
-        public APIResponse ObtenerNombre()
+        public APIResponse GetName()
         {
             try
             {
-                _apiResponse.Resultado = "Pearson Specter SA";
-                _apiResponse.EstadoRespuesta = HttpStatusCode.OK;
+                _apiResponse.Result = "Pearson Specter SA";
+                _apiResponse.StatusCode = HttpStatusCode.OK;
                  return _apiResponse;
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar obtener el Producto: " + ex.Message);
-                _apiResponse.FueExitoso = false;
-                _apiResponse.EstadoRespuesta = HttpStatusCode.NotFound;
-                _apiResponse.Exepciones = new List<string> { ex.ToString() };
+                _logger.LogError("Ocurrió un error al intentar obtener el Nombre: " + ex.Message);
+                _apiResponse.IsExit = false;
+                _apiResponse.Exeption = new List<string> { ex.ToString() };
                 return _apiResponse;
             }
         }

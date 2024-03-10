@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pXYzZAl3E1wnnXGuuRUpVSHpaFAznn0p49GMrtX32gOhCxqfssiiGXnQCavWQjcEjPuKbbKL/0HJFMkCCaGosw==",
+  "dgSpecHash": "ah9m75Vbx1yuNF6cW+hT3gEe0DnNHoxrgv+BvwvWQjvcJLtcTqgtytnnPZJ2kSywB3YwjdDUHkzR05ROE3V3Ng==",
   "success": true,
   "projectFilePath": "C:\\Users\\cabed\\OneDrive\\Desktop\\Curso\\c_sharp\\WebApi_Proyecto_Final\\WebApi_Proyecto_Final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cabed\\.nuget\\packages\\automapper\\13.0.0\\automapper.13.0.0.nupkg.sha512",
+    "C:\\Users\\cabed\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\cabed\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\cabed\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cabed\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\cabed\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

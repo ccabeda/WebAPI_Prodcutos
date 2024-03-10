@@ -13,42 +13,42 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public async Task Actualizar(Venta venta)
+        public async Task Update(Venta sale)
         {
-            _context.Update(venta);
-            await Guardar();
+            _context.Update(sale);
+            await Save();
         }
 
-        public async Task Crear(Venta venta)
+        public async Task Create(Venta sale)
         {
-            await _context.Venta.AddAsync(venta);
-            await Guardar();
+            await _context.Venta.AddAsync(sale);
+            await Save();
         }
 
-        public async Task Eliminar(Venta venta)
+        public async Task Delete(Venta sale)
         {
-            _context.Venta.Remove(venta);
-            await Guardar();
+            _context.Venta.Remove(sale);
+            await Save();
         }
 
-        public async Task Guardar()
+        public async Task Save()
         {
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Venta?> ObtenerPorId(int id)
+        public async Task<Venta?> GetById(int id)
         {
             return await _context.Venta.Include(v => v.ProductoVendidos).FirstOrDefaultAsync(v => v.Id == id);
         }
 
-        public async Task<List<Venta>> ObtenerTodos()
+        public async Task<List<Venta>> GetAll()
         {
             return await _context.Venta.AsNoTracking().Include(v => v.ProductoVendidos).ToListAsync();
         }
 
-        public async Task<List<Venta>> ObtenerPorIdUsuario(int idUsuario)
+        public async Task<List<Venta>> GetAllByUserId(int userId)
         {
-            return await _context.Venta.Include(v => v.ProductoVendidos).Where(v => v.IdUsuario == idUsuario).ToListAsync();
+            return await _context.Venta.Include(v => v.ProductoVendidos).Where(v => v.IdUsuario == userId).ToListAsync();
         }
     }
 }

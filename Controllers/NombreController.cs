@@ -18,15 +18,15 @@ namespace WebApi_Proyecto_Final.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<APIResponse> GetNombre()
+        public ActionResult<APIResponse> GetName()
         {
-           var resultado = _service.ObtenerNombre();
-            switch (resultado.EstadoRespuesta)
+           var result = _service.GetName();
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
     }

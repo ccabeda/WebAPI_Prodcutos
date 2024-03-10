@@ -4,6 +4,6 @@ namespace WebApi_Proyecto_Final.Repository.IRepository
 {
     public interface IRepositoryVenta : IRepositoryGeneric<Venta>
     {
-        Task<List<Venta>> ObtenerPorIdUsuario(int idUsuario);
+        Task<List<Venta>> GetAllByUserId(int userId);
     }
 }

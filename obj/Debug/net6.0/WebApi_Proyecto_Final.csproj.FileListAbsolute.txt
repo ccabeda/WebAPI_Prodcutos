@@ -68,3 +68,5 @@ C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\obj\Debug\ne
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\obj\Debug\net6.0\ref\WebApi_Proyecto_Final.dll
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\obj\Debug\net6.0\WebApi_P.4920DD0C.Up2Date
+C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

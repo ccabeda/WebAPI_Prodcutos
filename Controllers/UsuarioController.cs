@@ -22,15 +22,15 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> GetUsuarios()
         {
-            var resultado = await _service.ListarUsuarios();
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetAll();
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado); //para que funcione el frontend
+                    return Ok(result.Result); //para que funcione el frontend
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -40,51 +40,51 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> GetUsuario(int id)
         {
-            var resultado = await _service.ObtenerUsuario(id);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetById(id);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
-        [HttpGet(("{nombreDeUsuario}"))]
+        [HttpGet(("{username}"))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> GetUsuarioByUserName(string nombreDeUsuario)
+        public async Task<ActionResult<APIResponse>> GetUsuarioByUserName(string username)
         {
-            var resultado = await _service.ObtenerUsuarioPorNombreUsuario(nombreDeUsuario);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetByUsername(username);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
-        [HttpGet(("{usuario}/{password}"))]
+        [HttpGet(("{user}/{password}"))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> Login(string usuario, string password)
+        public async Task<ActionResult<APIResponse>> Login(string user, string password)
         {
-            var resultado = await _service.IniciarSesion(usuario, password);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Login(user, password);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -93,19 +93,19 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> CreateUsuario(UsuarioCreateDto usuarioCreate)
+        public async Task<ActionResult<APIResponse>> CreateUsuario(UsuarioCreateDto userCreate)
         {
-            var resultado = await _service.CrearUsuario(usuarioCreate);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Create(userCreate);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -114,19 +114,19 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> UpdateUsuario(UsuarioUpdateDto usuarioUpdate)
+        public async Task<ActionResult<APIResponse>> UpdateUsuario(UsuarioUpdateDto userUpdate)
         {
-            var resultado = await _service.ModificarUsuario(usuarioUpdate);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Update(userUpdate);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -137,17 +137,17 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> DeleteUsuario(int id)
         {
-            var resultado = await _service.EliminarUsuario(id);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Delete(id);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
     }

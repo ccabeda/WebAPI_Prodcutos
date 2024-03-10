@@ -13,42 +13,42 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public async Task Actualizar(ProductoVendido productoVendido)
+        public async Task Update(ProductoVendido productSold)
         {
-            _context.Update(productoVendido);
-            await Guardar();
+            _context.Update(productSold);
+            await Save();
         }
 
-        public async Task Crear(ProductoVendido productoVendido)
+        public async Task Create(ProductoVendido productSold)
         {
-            await _context.ProductoVendidos.AddAsync(productoVendido);
-            await Guardar();
+            await _context.ProductoVendidos.AddAsync(productSold);
+            await Save();
         }
 
-        public async Task Eliminar(ProductoVendido productoVendido)
+        public async Task Delete(ProductoVendido productSold)
         {
-            _context.ProductoVendidos.Remove(productoVendido);
-            await Guardar();
+            _context.ProductoVendidos.Remove(productSold);
+            await Save();
         }
 
-        public async Task Guardar()
+        public async Task Save()
         {
             await _context.SaveChangesAsync();
         }
 
-        public async Task<ProductoVendido?> ObtenerPorId(int id)
+        public async Task<ProductoVendido?> GetById(int id)
         {
             return await _context.ProductoVendidos.FindAsync(id);
         }
 
-        public async Task<List<ProductoVendido>> ObtenerTodos()
+        public async Task<List<ProductoVendido>> GetAll()
         {
             return await _context.ProductoVendidos.AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<ProductoVendido>> ObtenerPorIdProducto(int idProducto)
+        public async Task<List<ProductoVendido>> GetByProductId(int productId)
         {
-            return await _context.ProductoVendidos.Where(p => p.IdProducto == idProducto).ToListAsync();
+            return await _context.ProductoVendidos.Where(p => p.IdProducto == productId).ToListAsync();
         }
     }
 }

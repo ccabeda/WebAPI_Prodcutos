@@ -1,12 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi_Proyecto_Final.Database;
-using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
 using WebApi_Proyecto_Final.Mappers;
 using WebApi_Proyecto_Final.Repository;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services;
 using WebApi_Proyecto_Final.Services.IService;
+using FluentValidation;
+using WebApi_Proyecto_Final.DTOs.UsuarioDto;
+using WebApi_Proyecto_Final.Validations;
+using WebApi_Proyecto_Final.DTOs.ProductoDto;
+using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
+using WebApi_Proyecto_Final.DTOs.VentaDto;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +41,16 @@ builder.Services.AddScoped<IRepositoryUsuario, RepositoryUsuario>();
 builder.Services.AddAutoMapper(typeof(AutomapperConfig));
 //APIResponse (para que todos los endpoints devuelvan lo mismo)
 builder.Services.AddScoped<APIResponse>();
+//fluent validation
+
+builder.Services.AddScoped<IValidator<ProductoCreateDto>, ProductoCreateValidator>();
+builder.Services.AddScoped<IValidator<ProductoUpdateDto>, ProductoUpdateValidator>();
+builder.Services.AddScoped<IValidator<ProductoVendidoCreateDto>, ProductoVendidoCreateValidator>();
+builder.Services.AddScoped<IValidator<ProductoVendidoUpdateDto>, ProductoVendidoUpdateValidator>();
+builder.Services.AddScoped<IValidator<UsuarioCreateDto>, UsuarioCreateValidator>();
+builder.Services.AddScoped<IValidator<UsuarioUpdateDto>, UsuarioUpdateValidator>();
+builder.Services.AddScoped<IValidator<VentaCreateDto>, VentaCreateValidator>();
+builder.Services.AddScoped<IValidator<VentaUpdateDto>, VentaUpdateValidator>();
 
 //conexión con el frontend
 builder.Services.AddCors(options =>
@@ -47,7 +62,6 @@ builder.Services.AddCors(options =>
         policy.AllowAnyHeader();
     });
 });
-
 
 var app = builder.Build();
 

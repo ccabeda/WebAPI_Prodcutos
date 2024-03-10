@@ -4,6 +4,6 @@ namespace WebApi_Proyecto_Final.Services.IService
 {
     public interface IServiceNombre
     {
-        APIResponse ObtenerNombre();
+        APIResponse GetName();
     }
 }

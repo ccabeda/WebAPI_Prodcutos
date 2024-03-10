@@ -22,33 +22,33 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> GetProductosVendidos()
         {
-            var resultado = await _service.ListarProductosVendidos();
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetAll();
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
-        [HttpGet("{idUsuario}")]
+        [HttpGet("{userId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] //documentar estado de respuesta
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> GetProductosVendidosByIdUsuario(int idUsuario)
+        public async Task<ActionResult<APIResponse>> GetProductosVendidosByIdUsuario(int userId)
         {
-            var resultado = await _service.ListarProductosVendidosPorIdUsuario(idUsuario);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetAllByUserId(userId);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -58,15 +58,15 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> GetProductoVendido(int id)
         {
-            var resultado = await _service.ObtenerProductoVendido(id);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.GetById(id);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -75,19 +75,19 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> CreateProducto(ProductoVendidoCreateDto productoVendidoCreate)
+        public async Task<ActionResult<APIResponse>> CreateProducto(ProductoVendidoCreateDto productSoldCreate)
         {
-            var resultado = await _service.CrearProductoVendido(productoVendidoCreate);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Create(productSoldCreate);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -96,19 +96,19 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<APIResponse>> UpdateProductoVendido(ProductoVendidoUpdateDto productoUpdate)
+        public async Task<ActionResult<APIResponse>> UpdateProductoVendido(ProductoVendidoUpdateDto productSoldUpdate)
         {
-            var resultado = await _service.ModificarProductoVendido(productoUpdate);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Update(productSoldUpdate);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
 
@@ -119,17 +119,17 @@ namespace WebApi_Proyecto_Final.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<APIResponse>> DeleteProductoVendido(int id)
         {
-            var resultado = await _service.EliminarProductoVendido(id);
-            switch (resultado.EstadoRespuesta)
+            var result = await _service.Delete(id);
+            switch (result.StatusCode)
             {
                 case HttpStatusCode.BadRequest:
-                    return BadRequest(resultado);
+                    return BadRequest(result);
                 case HttpStatusCode.OK:
-                    return Ok(resultado.Resultado);
+                    return Ok(result.Result);
                 case HttpStatusCode.Conflict:
-                    return Conflict(resultado);
+                    return Conflict(result);
                 default:
-                    return NotFound(resultado);
+                    return NotFound(result);
             }
         }
     }
