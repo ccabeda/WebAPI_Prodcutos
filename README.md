@@ -45,6 +45,8 @@ Para este proyecto, utilice el metodo Scaffold de "Database First" partiendo de 
 
 NuGets necesarias para esta API:
 - AutoMapper -versión 13.0.0
+- FluentValidationi -versón 11.9.0 
+- FluentValidation.DependencyInjectionExtensions -versón 11.9.0
 - Microsoft.EntityFrameworkCore -versón 6.0.26
 - Microsoft.EntityFrameworkCore.SqlServer -versón 6.0.26
 - Microsoft.EntityFrameworkCore.Tools -versón 6.0.26
