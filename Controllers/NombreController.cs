@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApi_Proyecto_Final.Models.APIResponse;
 using WebApi_Proyecto_Final.Services.IService;
-using System.Net;
+using WebApi_Proyecto_Final.Services.Utils;
 
 namespace WebApi_Proyecto_Final.Controllers
 {
@@ -17,17 +17,11 @@ namespace WebApi_Proyecto_Final.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<APIResponse> GetName()
         {
            var result = _service.GetName();
-            switch (result.StatusCode)
-            {
-                case HttpStatusCode.OK:
-                    return Ok(result.Result);
-                default:
-                    return NotFound(result);
-            }
+            return Utils.ControllerHelper(result);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using WebApi_Proyecto_Final.Models.APIResponse;
 using WebApi_Proyecto_Final.Services.IService;
 using System.Net;
+using AutoMapper;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -8,26 +9,24 @@ namespace WebApi_Proyecto_Final.Services
     {
         private readonly APIResponse _apiResponse;
         private readonly ILogger<ServiceNombre> _logger;
-        public ServiceNombre(APIResponse aPIResponse, ILogger<ServiceNombre> logger)
+        private readonly IMapper _mapper;
+        public ServiceNombre(APIResponse aPIResponse, ILogger<ServiceNombre> logger, IMapper mapper)
         {
             _apiResponse = aPIResponse;
             _logger = logger;
+            _mapper = mapper;
 
         }
         public APIResponse GetName()
         {
             try
             {
-                _apiResponse.Result = "Pearson Specter SA";
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                 return _apiResponse;
+                string a = "Pearson Specter SA";
+                return Utils.Utils.CorrectResponse<string, string>(_mapper,a,_apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar obtener el Nombre: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
     }

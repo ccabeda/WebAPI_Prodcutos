@@ -7,6 +7,7 @@ using WebApi_Proyecto_Final.DTOs.ProductoDto;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
 using FluentValidation;
+using WebApi_Proyecto_Final.Services.Utils;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -38,24 +39,15 @@ namespace WebApi_Proyecto_Final.Services
             try
             {
                 var product = await _repository.GetById(id);
-                if (product == null)
+                if (!Utils.Utils.VerifyIfObjIsNull(product, _apiResponse, _logger))
                 {
-                    _logger.LogError("Error, el id ingresado no se encuentra registrado.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                _apiResponse.Result = _mapper.Map<ProductoDto>(product);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.CorrectResponse<ProductoDto, Producto>(_mapper, product, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar obtener el Producto: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.NotFound;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
 
@@ -64,24 +56,15 @@ namespace WebApi_Proyecto_Final.Services
             try
             {
                 var listProducts = await _repository.GetAll();
-                if (listProducts == null)
+                if (!Utils.Utils.CheckIfLsitIsNull<Producto>(listProducts, _apiResponse, _logger))
                 {
-                    _logger.LogError("No hay ningún producto registrado actualmente. Vuelve a intentarlo mas tarde.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode= HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                _apiResponse.Result = _mapper.Map<IEnumerable<ProductoDto>>(listProducts);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.ListCorrectResponse<ProductoDto, Producto>(_mapper, listProducts, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar obtener la lista de Productos: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.NotFound;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
 
@@ -89,46 +72,29 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var fluentValidation = await _validator.ValidateAsync(productCreate); //uso de fluent validations
-                if (!fluentValidation.IsValid)
+                if (await Utils.Utils.FluentValidator(productCreate, _validator, _apiResponse, _logger) != null)
                 {
-                    var errors = fluentValidation.Errors.Select(error => error.ErrorMessage).ToList();
-                    _logger.LogError("Error al validar los datos de entrada.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
-                    _apiResponse.Exeption = errors;
                     return _apiResponse;
                 }
                 var existProduct = await _repository.GetByName(productCreate.Descripciones);
                 var existUserId = await _repositoryUsuario.GetById(productCreate.IdUsuario);
-                if (existProduct != null || existUserId == null)
+                if (!Utils.Utils.CheckIfObjectExist<Producto>(existProduct, _apiResponse, _logger))
                 {
-                    if (existProduct != null)
-                    {
-                        _logger.LogError("Un producto con ese nombre ya se encuentra registrado.");
-                    }
-                    else
-                    {
-                        _logger.LogError("No existe usuario con el idUsuario enviado.");
-                    }
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = existProduct != null ? HttpStatusCode.Conflict : HttpStatusCode.NotFound;
                     return _apiResponse;
                 }
-                var producto = _mapper.Map<Producto>(productCreate);
-                await _repository.Create(producto!);
+                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId, _apiResponse, _logger))
+                {
+                    _logger.LogError("El idUsuario no se encuentra registrado");
+                    return _apiResponse;
+                }
+                var product = _mapper.Map<Producto>(productCreate);
+                await _repository.Create(product!);
                 _logger.LogInformation("!Producto creado con exito¡");
-                _apiResponse.Result = _mapper.Map<ProductoDto>(producto);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.CorrectResponse<ProductoDto, Producto>(_mapper, product, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar crear el Producto: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.NotFound;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
 
@@ -136,55 +102,34 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var fluentValidation = await _validatorUpdate.ValidateAsync(productUpdate); //uso de fluent validations
-                if (!fluentValidation.IsValid)
+                if (await Utils.Utils.FluentValidator(productUpdate, _validatorUpdate, _apiResponse, _logger) != null)
                 {
-                    var errors = fluentValidation.Errors.Select(error => error.ErrorMessage).ToList();
-                    _logger.LogError("Error al validar los datos de entrada.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
-                    _apiResponse.Exeption = errors;
                     return _apiResponse;
                 }
-                var existProduct = await _repository.GetById(productUpdate.Id); // Verifico que el id ingresado esté registrado en la base de datos
+                var product = await _repository.GetById(productUpdate.Id); // Verifico que el id ingresado esté registrado en la base de datos
                 var existUserId = await _repositoryUsuario.GetById(productUpdate.IdUsuario);
-                if (existProduct == null || existUserId == null)
+                if (!Utils.Utils.VerifyIfObjIsNull<Producto>(product, _apiResponse, _logger))
                 {
-                    if (existProduct == null)
-                    {
-                        _logger.LogError("Error, el producto que intenta modificar no existe.");
-                        _logger.LogError("Por favor, verifique que el id ingresado exista.");
-                    }
-                    else
-                    {
-                        _logger.LogError("No existe usuario con el idUsuario enviado.");
-                    }
-                    _apiResponse.StatusCode = existProduct == null ? HttpStatusCode.BadRequest : HttpStatusCode.NotFound;
-                    _apiResponse.IsExit = false;
+                    return _apiResponse;
+                }
+                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId, _apiResponse, _logger))
+                {
+                    _logger.LogError("El idUsuario no se encuentra registrado");
                     return _apiResponse;
                 }
                 var registredName = await _repository.GetByName(productUpdate.Descripciones);
-                if (registredName != null && registredName.Id != productUpdate.Id)
+                if (!Utils.Utils.CheckIfNameAlreadyExist<Producto>(registredName, product, _apiResponse, _logger))
                 {
-                    _logger.LogError("El nombre del producto " + productUpdate.Descripciones + " ya existe. Utilize otro.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.Conflict;
                     return _apiResponse;
                 }
-                _mapper.Map(productUpdate, existProduct);
-                await _repository.Update(existProduct);
+                _mapper.Map(productUpdate, product);
+                await _repository.Update(product);
                 _logger.LogInformation("!El producto de id " + productUpdate.Id + " fue actualizado con exito!");
-                _apiResponse.Result = _mapper.Map<ProductoDto>(existProduct);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.CorrectResponse<ProductoDto, Producto>(_mapper, product, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar actualizar el Producto: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.NotFound;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
 
@@ -193,39 +138,25 @@ namespace WebApi_Proyecto_Final.Services
             try
             {
                 var product = await _repository.GetById(id);
-                if (product == null)
+                if (!Utils.Utils.VerifyIfObjIsNull(product, _apiResponse, _logger))
                 {
-                    _logger.LogError("El id ingresado no esta registrado.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
                 var listProductSold = await _repositoryProductoVendido.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa,
                                                                                                     //que seria llamando al repository de productos vendidos en el service de producto
-                foreach (var i in listProductSold)
+
+                if(!Utils.Utils.PreventDeletionIfRelatedSoldProdcutExist<Producto>(product,listProductSold, _apiResponse, id))
                 {
-                    if (i.IdProducto == id)
-                    {
-                        _logger.LogError("Error. El producto vendido de id " + i.Id + " tiene como ProductoId a este producto.");
-                        _logger.LogError("Modifica o elimina el producto vendido para eliminar a este producto.");
-                        _apiResponse.IsExit = false;
-                        _apiResponse.StatusCode = HttpStatusCode.Conflict;
-                        return _apiResponse;
-                    }
+                    _logger.LogError("El Producto no se puede eliminar porque hay un Producto Vendido que contiene como ProductoId este produto.");
+                    return _apiResponse;
                 }
                 await _repository.Delete(product);
                 _logger.LogInformation("¡Producto eliminado con exito!");
-                _apiResponse.Result = _mapper.Map<ProductoDto>(product);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.CorrectResponse<ProductoDto, Producto>(_mapper, product, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar eliminar el Producto: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.BadRequest;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
 
@@ -233,25 +164,16 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var listProducts = await _repository.GetAllByUserId(userId); 
-                if (listProducts.Count == 0)
+                var listProducts = await _repository.GetAllByUserId(userId);
+                if (!Utils.Utils.CheckIfLsitIsNull<Producto>(listProducts, _apiResponse, _logger))
                 {
-                    _logger.LogError("No hay ningún producto registrada a ese IdUsuario. Vuelve a intentarlo mas tarde.");
-                    _apiResponse.IsExit = false;
-                    _apiResponse.StatusCode = HttpStatusCode.BadRequest;
                     return _apiResponse;
                 }
-                _apiResponse.Result = _mapper.Map<IEnumerable<ProductoDto>>(listProducts);
-                _apiResponse.StatusCode = HttpStatusCode.OK;
-                return _apiResponse;
+                return Utils.Utils.ListCorrectResponse<ProductoDto, Producto>(_mapper, listProducts, _apiResponse);
             }
             catch (Exception ex)
             {
-                _logger.LogError("Ocurrió un error al intentar obtener la lista de Productos de ese IdUsuario: " + ex.Message);
-                _apiResponse.IsExit = false;
-                _apiResponse.StatusCode = HttpStatusCode.NotFound;
-                _apiResponse.Exeption = new List<string> { ex.ToString() };
-                return _apiResponse;
+                return Utils.Utils.ErrorHandling(ex, _apiResponse, _logger);
             }
         }
     }
