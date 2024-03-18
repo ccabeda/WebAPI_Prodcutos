@@ -41,7 +41,7 @@ Para este proyecto, utilice el metodo Scaffold de "Database First" partiendo de 
   - [Delete Venta](#Delete-Venta)
  
 
-  ## NuGets
+## NuGets
 
 NuGets utlizados para esta API:
 - AutoMapper -versión 13.0.0
