@@ -7,11 +7,7 @@ using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services;
 using WebApi_Proyecto_Final.Services.IService;
 using FluentValidation;
-using WebApi_Proyecto_Final.DTOs.UsuarioDto;
-using WebApi_Proyecto_Final.Validations;
-using WebApi_Proyecto_Final.DTOs.ProductoDto;
-using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
-using WebApi_Proyecto_Final.DTOs.VentaDto;
+using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,17 +38,10 @@ builder.Services.AddAutoMapper(typeof(AutomapperConfig));
 //APIResponse (para que todos los endpoints devuelvan lo mismo)
 builder.Services.AddScoped<APIResponse>();
 //fluent validation
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddFluentValidationAutoValidation();
 
-builder.Services.AddScoped<IValidator<ProductoCreateDto>, ProductoCreateValidator>();
-builder.Services.AddScoped<IValidator<ProductoUpdateDto>, ProductoUpdateValidator>();
-builder.Services.AddScoped<IValidator<ProductoVendidoCreateDto>, ProductoVendidoCreateValidator>();
-builder.Services.AddScoped<IValidator<ProductoVendidoUpdateDto>, ProductoVendidoUpdateValidator>();
-builder.Services.AddScoped<IValidator<UsuarioCreateDto>, UsuarioCreateValidator>();
-builder.Services.AddScoped<IValidator<UsuarioUpdateDto>, UsuarioUpdateValidator>();
-builder.Services.AddScoped<IValidator<VentaCreateDto>, VentaCreateValidator>();
-builder.Services.AddScoped<IValidator<VentaUpdateDto>, VentaUpdateValidator>();
-
-//conexión con el frontend
+//conexión con el frontend (utilize un frontEnd echo en React)
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>

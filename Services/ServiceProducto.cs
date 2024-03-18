@@ -2,12 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
-using System.Net;
 using WebApi_Proyecto_Final.DTOs.ProductoDto;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
-using FluentValidation;
-using WebApi_Proyecto_Final.Services.Utils;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -19,10 +16,8 @@ namespace WebApi_Proyecto_Final.Services
         private readonly IMapper _mapper; //para mapear a dtos
         private readonly ILogger<ServiceProducto> _logger;
         private readonly APIResponse _apiResponse;
-        private readonly IValidator<ProductoCreateDto> _validator;
-        private readonly IValidator<ProductoUpdateDto> _validatorUpdate;
         public ServiceProducto(IRepositoryProducto repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper,
-                               ILogger<ServiceProducto> logger, APIResponse apiResponse, IValidator<ProductoCreateDto> validator, IValidator<ProductoUpdateDto> validatorUpdate)
+                               ILogger<ServiceProducto> logger, APIResponse apiResponse)
         {
             _repository = repository;
             _repositoryUsuario = repositoryUsuario;
@@ -30,8 +25,6 @@ namespace WebApi_Proyecto_Final.Services
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
-            _validator = validator;
-            _validatorUpdate = validatorUpdate;
         }
 
         public async Task<APIResponse> GetById(int id)
@@ -72,10 +65,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(productCreate, _validator, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var existProduct = await _repository.GetByName(productCreate.Descripciones);
                 var existUserId = await _repositoryUsuario.GetById(productCreate.IdUsuario);
                 if (!Utils.Utils.CheckIfObjectExist<Producto>(existProduct, _apiResponse, _logger))
@@ -102,10 +91,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(productUpdate, _validatorUpdate, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var product = await _repository.GetById(productUpdate.Id); // Verifico que el id ingresado esté registrado en la base de datos
                 var existUserId = await _repositoryUsuario.GetById(productUpdate.IdUsuario);
                 if (!Utils.Utils.VerifyIfObjIsNull<Producto>(product, _apiResponse, _logger))

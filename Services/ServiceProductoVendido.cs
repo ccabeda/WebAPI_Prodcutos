@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
-using System.Net;
 using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
-using FluentValidation;
-using WebApi_Proyecto_Final.DTOs.ProductoDto;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -18,11 +15,8 @@ namespace WebApi_Proyecto_Final.Services
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceProductoVendido> _logger;
         private readonly APIResponse _apiResponse;
-        private readonly IValidator<ProductoVendidoCreateDto> _validator;
-        private readonly IValidator<ProductoVendidoUpdateDto> _validatorUpdate;
         public ServiceProductoVendido(IRepositoryProductoVendido repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper,
-                                      ILogger<ServiceProductoVendido> logger, APIResponse apiResponse, IValidator<ProductoVendidoCreateDto> validator, IValidator<ProductoVendidoUpdateDto>
-                                      validatorUpdate)
+                                      ILogger<ServiceProductoVendido> logger, APIResponse apiResponse)
         {
             _repository = repository;
             _repositoryProducto = repositoryProducto;
@@ -30,8 +24,6 @@ namespace WebApi_Proyecto_Final.Services
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
-            _validator = validator;
-            _validatorUpdate = validatorUpdate;
         }
 
         public async Task<APIResponse> GetById(int id)
@@ -72,10 +64,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(productSoldCreate, _validator, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var existProductId = await _repositoryProducto.GetById(productSoldCreate.IdProducto);
                 var existSaleId = await _repositoryVenta.GetById(productSoldCreate.IdVenta);
                 if (!Utils.Utils.VerifyIfObjIsNull<Producto>(existProductId, _apiResponse, _logger))
@@ -103,10 +91,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(productSoldUpdate, _validatorUpdate, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var productSold = await _repository.GetById(productSoldUpdate.Id);
                 var existProductId = await _repositoryProducto.GetById(productSoldUpdate.IdProducto);
                 var existSaleId = await _repositoryVenta.GetById(productSoldUpdate.IdVenta);

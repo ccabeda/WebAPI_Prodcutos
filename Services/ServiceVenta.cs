@@ -6,8 +6,6 @@ using WebApi_Proyecto_Final.DTOs.VentaDto;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
 using WebApi_Proyecto_Final.DTOs.ProductoDto;
-using FluentValidation;
-using WebApi_Proyecto_Final.DTOs.UsuarioDto;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -20,10 +18,8 @@ namespace WebApi_Proyecto_Final.Services
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceVenta> _logger;
         private readonly APIResponse _apiResponse;
-        private readonly IValidator<VentaCreateDto> _validator;
-        private readonly IValidator<VentaUpdateDto> _validatorUpdate;
         public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper, 
-            IRepositoryProducto repositoryProducto, ILogger<ServiceVenta> logger, APIResponse apiResponse, IValidator<VentaCreateDto> validator, IValidator<VentaUpdateDto> validatorUpdate)
+            IRepositoryProducto repositoryProducto, ILogger<ServiceVenta> logger, APIResponse apiResponse)
         {
             _repository = repository;
             _repositoryUsuario = repositoryUsuario;
@@ -32,8 +28,6 @@ namespace WebApi_Proyecto_Final.Services
             _logger = logger;
             _apiResponse = apiResponse;
             _repositoryProducto = repositoryProducto;
-            _validator = validator;
-            _validatorUpdate = validatorUpdate;
         }
 
         public async Task<APIResponse> GetById(int id)
@@ -74,10 +68,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(saleCreate, _validator, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var existUserId = await _repositoryUsuario.GetById(saleCreate.IdUsuario);
                 if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId, _apiResponse, _logger))
                 {
@@ -98,10 +88,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(saleUpdate, _validatorUpdate, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var sale = await _repository.GetById(saleUpdate.Id); //verifico que el id ingresado este registrado en la db
                 var existUserId = await _repositoryUsuario.GetById(saleUpdate.IdUsuario);
                 if (!Utils.Utils.VerifyIfObjIsNull<Venta>(sale, _apiResponse, _logger))

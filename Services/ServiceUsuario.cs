@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
-using System.Net;
 using WebApi_Proyecto_Final.DTOs.UsuarioDto;
 using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
-using FluentValidation;
-using WebApi_Proyecto_Final.DTOs.ProductoVendidoDto;
 
 namespace WebApi_Proyecto_Final.Services
 {
@@ -18,10 +15,8 @@ namespace WebApi_Proyecto_Final.Services
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceUsuario> _logger;
         private readonly APIResponse _apiResponse;
-        private readonly IValidator<UsuarioCreateDto> _validator;
-        private readonly IValidator<UsuarioUpdateDto> _validatorUpdate;
         public ServiceUsuario(IRepositoryUsuario repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper, ILogger<ServiceUsuario> logger,
-                              APIResponse apiResponse, IValidator<UsuarioCreateDto> validator,IValidator<UsuarioUpdateDto> validatorUpdate)
+                              APIResponse apiResponse)
         {
             _repository = repository;
             _repositoryProducto = repositoryProducto;
@@ -29,8 +24,6 @@ namespace WebApi_Proyecto_Final.Services
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
-            _validator = validator;
-            _validatorUpdate = validatorUpdate;
         }
 
         public async Task<APIResponse> GetById(int id)
@@ -71,10 +64,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(userCreate, _validator, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var existUser = await _repository.GetByName(userCreate.NombreUsuario);
                 var existMail = await _repository.GetByMail(userCreate.Mail);
                 if (!Utils.Utils.CheckIfObjectExist<Usuario>(existUser, _apiResponse, _logger))
@@ -102,10 +91,6 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                if (await Utils.Utils.FluentValidator(userUpdate, _validatorUpdate, _apiResponse, _logger) != null)
-                {
-                    return _apiResponse;
-                }
                 var user = await _repository.GetById(userUpdate.Id); //verifico que el id ingresado este registrado en la db
                 if(!Utils.Utils.VerifyIfObjIsNull<Usuario>(user, _apiResponse, _logger))
                 {

@@ -28,21 +28,6 @@ namespace WebApi_Proyecto_Final.Services.Utils
             }
         }
 
-        public async static Task<APIResponse?> FluentValidator<T>(T dto, IValidator<T> validator, APIResponse apiresponse, ILogger logger) 
-        {
-            var fluentValidation = await validator.ValidateAsync(dto);
-            if (!fluentValidation.IsValid)
-            {
-                var errors = fluentValidation.Errors.Select(e => e.ErrorMessage).ToList();
-                logger.LogError("Error al validar los datos de entrada.");
-                apiresponse.IsExit = false;
-                apiresponse.StatusCode = HttpStatusCode.BadRequest;
-                apiresponse.Exeption = errors;
-                return apiresponse;
-            }
-            return null;
-        }
-
         public static APIResponse ErrorHandling(Exception ex, APIResponse apiresponse, ILogger logger) 
         {
             logger.LogError("Ocurrio un error inesperado. Error: " + ex.Message);

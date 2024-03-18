@@ -70,3 +70,5 @@ C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\ne
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\obj\Debug\net6.0\WebApi_P.4920DD0C.Up2Date
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\SharpGrip.FluentValidation.AutoValidation.Mvc.dll
+C:\Users\cabed\OneDrive\Desktop\Curso\c_sharp\WebApi_Proyecto_Final\bin\Debug\net6.0\SharpGrip.FluentValidation.AutoValidation.Shared.dll
