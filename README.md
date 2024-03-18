@@ -43,14 +43,15 @@ Para este proyecto, utilice el metodo Scaffold de "Database First" partiendo de 
 
   ## NuGets
 
-NuGets necesarias para esta API:
+NuGets utlizados para esta API:
 - AutoMapper -versión 13.0.0
-- FluentValidationi -versón 11.9.0 
-- FluentValidation.DependencyInjectionExtensions -versón 11.9.0
-- Microsoft.EntityFrameworkCore -versón 6.0.26
-- Microsoft.EntityFrameworkCore.SqlServer -versón 6.0.26
-- Microsoft.EntityFrameworkCore.Tools -versón 6.0.26
-- Swashbuckle.AspNetCore -versón 6.5.0
+- FluentValidationi -versión 11.9.0 
+- FluentValidation.DependencyInjectionExtensions -versión 11.9.0
+- Microsoft.EntityFrameworkCore -versión 6.0.26
+- Microsoft.EntityFrameworkCore.SqlServer -versión 6.0.26
+- Microsoft.EntityFrameworkCore.Tools -versión 6.0.26
+- SharpGrip.FluentValidation.AutoValidation.Mvc -versión 1.4.0
+- Swashbuckle.AspNetCore -versión 6.5.0
 
 
 ## Endpoints API
