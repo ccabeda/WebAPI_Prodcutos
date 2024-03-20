@@ -16,24 +16,16 @@ namespace WebApi_Proyecto_Final.Repository
         public async Task Update(Producto product)
         {
             _context.Update(product);
-            await Save();
         }
 
         public async Task Create(Producto product)
         {
             await _context.Productos.AddAsync(product);
-            await Save();
         }
 
         public async Task Delete(Producto product)
         {
             _context.Productos.Remove(product);
-            await Save();
-        }
-
-        public async Task Save()
-        {
-            await _context.SaveChangesAsync();
         }
 
         public async Task<Producto?> GetById(int id)

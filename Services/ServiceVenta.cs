@@ -3,43 +3,37 @@ using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
 using System.Net;
 using WebApi_Proyecto_Final.DTOs.VentaDto;
-using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
 using WebApi_Proyecto_Final.DTOs.ProductoDto;
+using WebApi_Proyecto_Final.UnitOfWork;
 
 namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceVenta : IServiceVenta
     {
-        private readonly IRepositoryVenta _repository;
-        private readonly IRepositoryUsuario _repositoryUsuario;
-        private readonly IRepositoryProductoVendido _repositoryProductoVendido;
-        private readonly IRepositoryProducto _repositoryProducto;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceVenta> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceVenta(IRepositoryVenta repository, IRepositoryUsuario repositoryUsuario, IRepositoryProductoVendido repositoryProductoVendido, IMapper mapper, 
-            IRepositoryProducto repositoryProducto, ILogger<ServiceVenta> logger, APIResponse apiResponse)
+        public ServiceVenta(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ServiceVenta> logger, APIResponse apiResponse)
         {
-            _repository = repository;
-            _repositoryUsuario = repositoryUsuario;
-            _repositoryProductoVendido = repositoryProductoVendido;
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
-            _repositoryProducto = repositoryProducto;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<APIResponse> GetById(int id)
         {
             try
             {
-                var sale = await _repository.GetById(id); //busco en la db con la id
-                if (!Utils.Utils.VerifyIfObjIsNull(sale, _apiResponse, _logger))
+                var sale = await _unitOfWork.repositoryVenta.GetById(id);
+                if (Utils.Utils.VerifyIfObjIsNull(sale))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El id " + id + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.CorrectResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
+                return Utils.Utils.OKResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -51,12 +45,13 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var listSales = await _repository.GetAll(); //traigo la lista de usuarios
-                if (!Utils.Utils.CheckIfLsitIsNull<Venta>(listSales, _apiResponse, _logger))
+                var listSales = await _unitOfWork.repositoryVenta.GetAll();
+                if (Utils.Utils.CheckIfLsitIsNull<Venta>(listSales))
                 {
-                    return _apiResponse;
+                    _logger.LogError("La lista de ventas esta vacia.");
+                    Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.ListCorrectResponse<VentaDto, Venta>(_mapper, listSales, _apiResponse);
+                return Utils.Utils.ListOKResponse<VentaDto, Venta>(_mapper, listSales, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -68,15 +63,17 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var existUserId = await _repositoryUsuario.GetById(saleCreate.IdUsuario);
-                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId, _apiResponse, _logger))
+                var existUserId = await _unitOfWork.repositoryUsuario.GetById(saleCreate.IdUsuario);
+                if (Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El idUsuario" + saleCreate.IdUsuario + "no se encuentra registrado.");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 var sale = _mapper.Map<Venta>(saleCreate);
-                await _repository.Create(sale!);
+                await _unitOfWork.repositoryVenta.Create(sale);
+                await _unitOfWork.Save();
                 _logger.LogError("!Venta creada con exito¡");
-                return Utils.Utils.CorrectResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
+                return Utils.Utils.OKResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -88,20 +85,23 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var sale = await _repository.GetById(saleUpdate.Id); //verifico que el id ingresado este registrado en la db
-                var existUserId = await _repositoryUsuario.GetById(saleUpdate.IdUsuario);
-                if (!Utils.Utils.VerifyIfObjIsNull<Venta>(sale, _apiResponse, _logger))
+                var sale = await _unitOfWork.repositoryVenta.GetById(saleUpdate.Id);
+                var existUserId = await _unitOfWork.repositoryUsuario.GetById(saleUpdate.IdUsuario);
+                if (Utils.Utils.VerifyIfObjIsNull<Venta>(sale))
                 {
-                    return _apiResponse;
+                    _logger.LogError("La venta" + saleUpdate.Comentarios + "no se encuentra registrada.");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId, _apiResponse, _logger))
+                if (Utils.Utils.VerifyIfObjIsNull<Usuario>(existUserId))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El idUsuario" + saleUpdate.IdUsuario + "no se encuentra registrado.");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 _mapper.Map(saleUpdate, sale);
-                await _repository.Update(sale); //guardo cambios
+                await _unitOfWork.repositoryVenta.Update(sale);
+                await _unitOfWork.Save();
                 _logger.LogInformation("!La venta de id " + saleUpdate.Id + " fue actualizado con exito!");
-                return Utils.Utils.CorrectResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
+                return Utils.Utils.OKResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -113,21 +113,23 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var sale = await _repository.GetById(id);
-                if (Utils.Utils.VerifyIfObjIsNull(sale, _apiResponse, _logger))
+                var sale = await _unitOfWork.repositoryVenta.GetById(id);
+                if (Utils.Utils.VerifyIfObjIsNull(sale))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El id " + id + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                var listProductsSold = await _repositoryProductoVendido.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa,
-                                                                                   //que seria llamando al repository de productos vendidos en el service de venta
-                if(!Utils.Utils.PreventDeletionIfRelatedSoldProdcutExist<Venta>(sale, listProductsSold, _apiResponse, id))
+                var listProductsSold = await _unitOfWork.repositoryproductoVendido.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa,
+                                                                                             //que seria llamando al repository de productos vendidos en el service de venta
+                if (!Utils.Utils.PreventDeletionIfRelatedSoldProdcutExist<Venta>(sale, listProductsSold, id))
                 {
                     _logger.LogError("La Venta no se puede eliminar porque hay un Producto vendido que contiene como VentaId este venta.");
-                    return _apiResponse;
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                await _repository.Delete(sale);
+                await _unitOfWork.repositoryVenta.Delete(sale);
+                await _unitOfWork.Save();
                 _logger.LogInformation("¡Venta eliminada con exito!");
-                return Utils.Utils.CorrectResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
+                return Utils.Utils.OKResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -139,12 +141,13 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var listSales = await _repository.GetAllByUserId(idUsuario); //traigo la lista de usuarios
-                if (!Utils.Utils.CheckIfLsitIsNull<Venta>(listSales, _apiResponse, _logger))
+                var listSales = await _unitOfWork.repositoryVenta.GetAllByUserId(idUsuario);
+                if (Utils.Utils.CheckIfLsitIsNull<Venta>(listSales))
                 {
-                    return _apiResponse;
+                    _logger.LogError("La lista de ventas esta vacia.");
+                    Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.ListCorrectResponse<VentaDto, Venta>(_mapper, listSales, _apiResponse);
+                return Utils.Utils.ListOKResponse<VentaDto, Venta>(_mapper, listSales, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -156,19 +159,21 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var existUserId = await _repositoryUsuario.GetById(userId);
-                if (Utils.Utils.VerifyIfObjIsNull(existUserId, _apiResponse, _logger))
+                var existUserId = await _unitOfWork.repositoryUsuario.GetById(userId);
+                if (Utils.Utils.VerifyIfObjIsNull(existUserId))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El idUsuario " + userId + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                if (!Utils.Utils.CheckIfLsitIsNull<ProductoDtoParaVentas>(products, _apiResponse, _logger))
+                if (Utils.Utils.CheckIfLsitIsNull<ProductoDtoParaVentas>(products))
                 {
-                    return _apiResponse;
+                    _logger.LogError("La lista de productos esta vacia.");
+                    Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 List<Producto> finalProducts = new List<Producto>();
                 foreach (ProductoDtoParaVentas p in products) //verifico que todos los productos que se intentan vender tengan stock, si alguno no se ejecuta la venta
                 {
-                    var product = await _repositoryProducto.GetById(p.Id);
+                    var product = await _unitOfWork.repositoryProducto.GetById(p.Id);
                     if (product == null || product.Stock < p.Stock)
                     {
                         if (product == null)
@@ -185,7 +190,7 @@ namespace WebApi_Proyecto_Final.Services
                         return _apiResponse;
                     }
                     product!.Stock -= p.Stock; //actualizo stock
-                    await _repositoryProducto.Update(product);
+                    await _unitOfWork.repositoryProducto.Update(product);
                     finalProducts.Add(product);
                 }
                 Venta sale = new Venta();
@@ -193,7 +198,7 @@ namespace WebApi_Proyecto_Final.Services
                 string comment = string.Join(" - ", names);
                 sale.Comentarios = comment;
                 sale.IdUsuario = userId;
-                await _repository.Create(sale); //creo la venta
+                await _unitOfWork.repositoryVenta.Create(sale);
                 int pointer = 0;
                 foreach (Producto p in finalProducts) //creo los productos vendidos con el stock que fue vendido 
                 {
@@ -202,9 +207,10 @@ namespace WebApi_Proyecto_Final.Services
                     productSold.IdProducto = p.Id;
                     productSold.Stock = products[pointer].Stock;
                     pointer++;
-                    await _repositoryProductoVendido.Create(productSold); //creo los productos vendidos
+                    await _unitOfWork.repositoryproductoVendido.Create(productSold); //creo los productos vendidos
                 }
-                return Utils.Utils.CorrectResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
+                await _unitOfWork.Save(); //aca guardo todos los cambios, en vez de guardar en cada uno.
+                return Utils.Utils.OKResponse<VentaDto, Venta>(_mapper, sale, _apiResponse);
             }
             catch (Exception ex)
             {

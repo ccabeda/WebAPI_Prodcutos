@@ -8,6 +8,7 @@ using WebApi_Proyecto_Final.Services;
 using WebApi_Proyecto_Final.Services.IService;
 using FluentValidation;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
+using WebApi_Proyecto_Final.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,8 @@ builder.Services.AddScoped<APIResponse>();
 //fluent validation
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.AddFluentValidationAutoValidation();
+//unit of work
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //conexión con el frontend (utilize un frontEnd echo en React)
 builder.Services.AddCors(options =>

@@ -16,24 +16,16 @@ namespace WebApi_Proyecto_Final.Repository
         public async Task Update(Venta sale)
         {
             _context.Update(sale);
-            await Save();
         }
 
         public async Task Create(Venta sale)
         {
             await _context.Venta.AddAsync(sale);
-            await Save();
         }
 
         public async Task Delete(Venta sale)
         {
             _context.Venta.Remove(sale);
-            await Save();
-        }
-
-        public async Task Save()
-        {
-            await _context.SaveChangesAsync();
         }
 
         public async Task<Venta?> GetById(int id)

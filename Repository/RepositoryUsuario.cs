@@ -16,24 +16,16 @@ namespace WebApi_Proyecto_Final.Repository
         public async Task Update(Usuario user)
         {
             _context.Update(user);
-            await Save();
         }
 
         public async Task Create(Usuario user)
         {
             await _context.Usuarios.AddAsync(user);
-            await Save();
         }
 
         public async Task Delete(Usuario user)
         {
             _context.Usuarios.Remove(user);
-            await Save();
-        }
-
-        public async Task Save()
-        {
-            await _context.SaveChangesAsync();
         }
 
         public async Task<Usuario?> GetById(int id)

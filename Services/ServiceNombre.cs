@@ -21,7 +21,7 @@ namespace WebApi_Proyecto_Final.Services
             try
             {
                 string a = "Pearson Specter SA";
-                return Utils.Utils.CorrectResponse<string, string>(_mapper,a,_apiResponse);
+                return Utils.Utils.OKResponse<string, string>(_mapper,a,_apiResponse);
             }
             catch (Exception ex)
             {

@@ -13,10 +13,4 @@ namespace WebApi_Proyecto_Final.DTOs.ProductoDto
 
         public virtual ICollection<ProductoVendidoDTO>? ProductoVendidos { get; set; }
     }
-    public record ProdcutoCreateDto(int Id,
-                                    string Descripciones,
-                                    decimal? costo,
-                                    decimal PrecioVenta,
-                                    int Stock,
-                                    int IdUsuario);
 }

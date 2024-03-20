@@ -2,40 +2,37 @@
 using WebApi_Proyecto_Final.Models;
 using WebApi_Proyecto_Final.Models.APIResponse;
 using WebApi_Proyecto_Final.DTOs.UsuarioDto;
-using WebApi_Proyecto_Final.Repository.IRepository;
 using WebApi_Proyecto_Final.Services.IService;
+using WebApi_Proyecto_Final.UnitOfWork;
 
 namespace WebApi_Proyecto_Final.Services
 {
     public class ServiceUsuario : IServiceUsuario
     {
-        private readonly IRepositoryUsuario _repository;
-        private readonly IRepositoryProducto _repositoryProducto;
-        private readonly IRepositoryVenta _repositoryVenta;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILogger<ServiceUsuario> _logger;
         private readonly APIResponse _apiResponse;
-        public ServiceUsuario(IRepositoryUsuario repository, IRepositoryProducto repositoryProducto, IRepositoryVenta repositoryVenta, IMapper mapper, ILogger<ServiceUsuario> logger,
+        public ServiceUsuario(IUnitOfWork unitOfWork, IMapper mapper, ILogger<ServiceUsuario> logger,
                               APIResponse apiResponse)
         {
-            _repository = repository;
-            _repositoryProducto = repositoryProducto;
-            _repositoryVenta = repositoryVenta;
             _mapper = mapper;
             _logger = logger;
             _apiResponse = apiResponse;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<APIResponse> GetById(int id)
         {
             try
             {
-                var user = await _repository.GetById(id); //busco en la db con la id
-                if (!Utils.Utils.VerifyIfObjIsNull(user, _apiResponse, _logger))
+                var user = await _unitOfWork.repositoryUsuario.GetById(id);
+                if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El usuario de id " + id + " no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -47,12 +44,13 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var listUser = await _repository.GetAll(); //traigo la lista de usuarios
-                if (!Utils.Utils.CheckIfLsitIsNull<Usuario>(listUser, _apiResponse, _logger))
+                var listUser = await _unitOfWork.repositoryUsuario.GetAll();
+                if (Utils.Utils.CheckIfLsitIsNull<Usuario>(listUser))
                 {
-                    return _apiResponse;
+                    _logger.LogError("La lista de usuarios esta vacia.");
+                    Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.ListCorrectResponse<UsuarioDto, Usuario>(_mapper, listUser, _apiResponse);
+                return Utils.Utils.ListOKResponse<UsuarioDto, Usuario>(_mapper, listUser, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -64,22 +62,23 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var existUser = await _repository.GetByName(userCreate.NombreUsuario);
-                var existMail = await _repository.GetByMail(userCreate.Mail);
-                if (!Utils.Utils.CheckIfObjectExist<Usuario>(existUser, _apiResponse, _logger))
+                var existUser = await _unitOfWork.repositoryUsuario.GetByName(userCreate.NombreUsuario);
+                var existMail = await _unitOfWork.repositoryUsuario.GetByMail(userCreate.Mail);
+                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existUser))
                 {
                     _logger.LogError("El nombre de usuario " + userCreate.NombreUsuario + " ya existe. Utilize otro.");
-                    return _apiResponse;
+                    return Utils.Utils.ConflictResponse(_apiResponse);
                 }
-                if (!Utils.Utils.CheckIfObjectExist<Usuario>(existMail, _apiResponse, _logger))
+                if (!Utils.Utils.VerifyIfObjIsNull<Usuario>(existMail))
                 {
                     _logger.LogError("El mail " + userCreate.Mail + " ya se encuentra registrado.");
-                    return _apiResponse;
+                    return Utils.Utils.ConflictResponse(_apiResponse);
                 }
                 var user = _mapper.Map<Usuario>(userCreate);
-                await _repository.Create(user);
+                await _unitOfWork.repositoryUsuario.Create(user);
+                await _unitOfWork.Save();
                 _logger.LogError("!Usuario creado con exito¡");
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -91,25 +90,29 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var user = await _repository.GetById(userUpdate.Id); //verifico que el id ingresado este registrado en la db
-                if(!Utils.Utils.VerifyIfObjIsNull<Usuario>(user, _apiResponse, _logger))
+                var user = await _unitOfWork.repositoryUsuario.GetById(userUpdate.Id); //verifico que el id ingresado este registrado en la db
+                if (Utils.Utils.VerifyIfObjIsNull<Usuario>(user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El usuario enviado no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                var registredName = await _repository.GetByName(userUpdate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
-                var registredMail = await _repository.GetByMail(userUpdate.Mail); //si ya existe ese mail no deja crear
-                if (!Utils.Utils.CheckIfNameAlreadyExist<Usuario>(registredName, user, _apiResponse, _logger))
+                var registredName = await _unitOfWork.repositoryUsuario.GetByName(userUpdate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
+                var registredMail = await _unitOfWork.repositoryUsuario.GetByMail(userUpdate.Mail); //si ya existe ese mail no deja crear
+                if (Utils.Utils.CheckIfNameAlreadyExist<Usuario>(registredName, user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El nombre de usuario " + userUpdate.NombreUsuario + " ya se encuentra registrado. Por favor, utiliza otro.");
+                    return Utils.Utils.ConflictResponse(_apiResponse);
                 }
-                if (!Utils.Utils.CheckIfNameAlreadyExist<Usuario>(registredMail, user, _apiResponse, _logger))
+                if (Utils.Utils.CheckIfNameAlreadyExist<Usuario>(registredMail, user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El mail " + userUpdate.Mail + " ya se encuentra registrado.");
+                    return Utils.Utils.ConflictResponse(_apiResponse);
                 }
                 _mapper.Map(userUpdate, user);
-                await _repository.Update(user);
+                await _unitOfWork.repositoryUsuario.Update(user);
+                await _unitOfWork.Save();
                 Console.WriteLine("!El usuario de id " + userUpdate.Id + " fue actualizado con exito!");
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -121,27 +124,29 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var user = await _repository.GetById(id);
-                if (Utils.Utils.VerifyIfObjIsNull(user, _apiResponse, _logger))
+                var user = await _unitOfWork.repositoryUsuario.GetById(id);
+                if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El id " + id + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                var listProducts = await _repositoryProducto.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de producto
-                                                                               //en el service de usuario
-                if (!Utils.Utils.PreventDeletionIfRelatedProductExist(listProducts, _apiResponse, id))
+                var listProducts = await _unitOfWork.repositoryProducto.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de producto
+                                                                                              //en el service de usuario
+                if (!Utils.Utils.PreventDeletionIfRelatedProductExist(listProducts, id))
                 {
                     _logger.LogError("El Usuario no se puede eliminar porque hay un Producto que contiene como UsuarioId este usuario.");
-                    return _apiResponse;
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                var listSales = await _repositoryVenta.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de venta
-                if(!Utils.Utils.PreventDeletionIfRelatedSalesExist(listSales, _apiResponse, id))
+                var listSales = await _unitOfWork.repositoryVenta.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de venta
+                if (!Utils.Utils.PreventDeletionIfRelatedSalesExist(listSales, id))
                 {
                     _logger.LogError("El Usuario no se puede eliminar porque hay una Venta que contiene como UsuarioId este usuario.");
-                    return _apiResponse;
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                await _repository.Delete(user);
+                await _unitOfWork.repositoryUsuario.Delete(user);
+                await _unitOfWork.Save();
                 _logger.LogInformation("¡Usuario eliminado con exito!");
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -153,12 +158,13 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var user = await _repository.GetByName(username); //busco en la db con la id
-                if (Utils.Utils.VerifyIfObjIsNull(user, _apiResponse, _logger))
+                var user = await _unitOfWork.repositoryUsuario.GetByName(username);
+                if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-                    return _apiResponse;
+                    _logger.LogError("El nombre de usuario " + username + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
@@ -170,17 +176,20 @@ namespace WebApi_Proyecto_Final.Services
         {
             try
             {
-                var user = await _repository.GetByName(username); //busco en la db con la id
-                if (Utils.Utils.VerifyIfObjIsNull(user, _apiResponse, _logger))
+                var user = await _unitOfWork.repositoryUsuario.GetByName(username);
+                if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-                    return _apiResponse;
+
+                    _logger.LogError("Usuario incorrecto.");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
 
-                if (!Utils.Utils.VerifyPassword(user.Contraseña, password, _logger, _apiResponse))
+                if (!Utils.Utils.VerifyPassword(user.Contraseña, password))
                 {
-                    return _apiResponse;
+                    _logger.LogError("Contraseña incorrecta.");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                return Utils.Utils.CorrectResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
+                return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
             {
