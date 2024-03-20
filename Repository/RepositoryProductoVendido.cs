@@ -13,34 +13,16 @@ namespace WebApi_Proyecto_Final.Repository
             _context = context;
         }
 
-        public async Task Update(ProductoVendido productSold)
-        {
-            _context.Update(productSold);
-        }
-
-        public async Task Create(ProductoVendido productSold)
-        {
-            await _context.ProductoVendidos.AddAsync(productSold);
-        }
-
-        public async Task Delete(ProductoVendido productSold)
-        {
-            _context.ProductoVendidos.Remove(productSold);
-        }
-
-        public async Task<ProductoVendido?> GetById(int id)
-        {
-            return await _context.ProductoVendidos.FindAsync(id);
-        }
-
-        public async Task<List<ProductoVendido>> GetAll()
-        {
-            return await _context.ProductoVendidos.AsNoTracking().ToListAsync();
-        }
-
-        public async Task<List<ProductoVendido>> GetByProductId(int productId)
-        {
-            return await _context.ProductoVendidos.Where(p => p.IdProducto == productId).ToListAsync();
-        }
+        public  async Task Update(ProductoVendido productSold) => _context.Update(productSold);
+        
+        public async Task Create(ProductoVendido productSold) => await _context.ProductoVendidos.AddAsync(productSold);
+        
+        public async Task Delete(ProductoVendido productSold) => _context.ProductoVendidos.Remove(productSold);
+        
+        public async Task<ProductoVendido?> GetById(int id) => await _context.ProductoVendidos.FindAsync(id);
+        
+        public async Task<List<ProductoVendido>> GetAll() => await _context.ProductoVendidos.AsNoTracking().ToListAsync();
+        
+        public async Task<List<ProductoVendido>> GetByProductId(int productId) => await _context.ProductoVendidos.Where(p => p.IdProducto == productId).ToListAsync();
     }
 }

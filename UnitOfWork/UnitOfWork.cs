@@ -23,9 +23,7 @@ namespace WebApi_Proyecto_Final.UnitOfWork
             repositoryVenta = _repositoryVenta;
         }
 
-        public async Task Save()
-        {
-           await _context.SaveChangesAsync();
-        }
+        public async Task Save() => await _context.SaveChangesAsync();
+        
     }
 }
