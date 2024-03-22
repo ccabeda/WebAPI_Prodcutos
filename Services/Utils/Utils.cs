@@ -106,11 +106,11 @@ namespace WebApi_Proyecto_Final.Services.Utils
 
         public static bool VerifyPassword(string password, string passwordEncrypted) //verificar las password en los endpoints
         {
-            if (!Encrypt.Encrypt.VerifyPassword(password, passwordEncrypted))
+            if (Encrypt.Encrypt.VerifyPassword(password, passwordEncrypted))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
 
         public static APIResponse BadRequestResponse(APIResponse apiresponse)

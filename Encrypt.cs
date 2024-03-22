@@ -43,10 +43,10 @@ namespace WebApi_Proyecto_Final.Encrypt
             {
                 if (hashBytes[i + saltSize] != hash[i])
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
     }
 }

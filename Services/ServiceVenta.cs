@@ -199,13 +199,14 @@ namespace WebApi_Proyecto_Final.Services
                 sale.Comentarios = comment;
                 sale.IdUsuario = userId;
                 await _unitOfWork.repositoryVenta.Create(sale);
+                await _unitOfWork.Save(); //aca guardo para obtener la id de venta
                 int pointer = 0;
                 foreach (Producto p in finalProducts) //creo los productos vendidos con el stock que fue vendido 
                 {
                     ProductoVendido productSold = new ProductoVendido();
                     productSold.IdVenta = sale.Id;
                     productSold.IdProducto = p.Id;
-                    productSold.Stock = products[pointer].Stock;
+                    productSold.Stock = finalProducts[pointer].Stock;
                     pointer++;
                     await _unitOfWork.repositoryproductoVendido.Create(productSold); //creo los productos vendidos
                 }

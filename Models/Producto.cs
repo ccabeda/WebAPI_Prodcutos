@@ -8,7 +8,6 @@
         public decimal PrecioVenta { get; set; }
         public int Stock { get; set; }
         public int IdUsuario { get; set; }
-
         public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
         public virtual ICollection<ProductoVendido>? ProductoVendidos { get; set; }
     }

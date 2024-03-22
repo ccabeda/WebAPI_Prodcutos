@@ -97,7 +97,7 @@ namespace WebApi_Proyecto_Final.Services
                     _logger.LogError("El usuario enviado no se encuentra registrado");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
+                if (Utils.Utils.VerifyPassword(password, user.Contraseña))
                 {
                     _logger.LogError("Contraseña incorrecta");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
@@ -137,7 +137,7 @@ namespace WebApi_Proyecto_Final.Services
                     _logger.LogError("El usuario " + username + "no se encuentra registrado");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
+                if (Utils.Utils.VerifyPassword(password, user.Contraseña))
                 {
                     _logger.LogError("Contraseña incorrecta");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
@@ -194,7 +194,7 @@ namespace WebApi_Proyecto_Final.Services
                     _logger.LogError("Usuario incorrecto.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
+                if (Utils.Utils.VerifyPassword(password, user.Contraseña))
                 {
                     _logger.LogError("Contraseña incorrecta.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);

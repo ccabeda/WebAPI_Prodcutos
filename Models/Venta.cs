@@ -7,7 +7,6 @@ namespace WebApi_Proyecto_Final.Models
         public int Id { get; set; }
         public string? Comentarios { get; set; }
         public int IdUsuario { get; set; }
-
         [JsonIgnore]
         public virtual Usuario IdUsuarioNavigation { get; set; } = null!;
         public virtual ICollection<ProductoVendido>? ProductoVendidos { get; set; }

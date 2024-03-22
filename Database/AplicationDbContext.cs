@@ -6,26 +6,16 @@ namespace WebApi_Proyecto_Final.Database
     public partial class AplicationDbContext : DbContext
     {
         public AplicationDbContext()
-        {
-        }
+        {}
 
-        public AplicationDbContext(DbContextOptions<AplicationDbContext> options)
-            : base(options)
-        {
-        }
+        public AplicationDbContext(DbContextOptions<AplicationDbContext> options): base(options)
+        {}
 
         public virtual DbSet<Producto> Productos { get; set; } = null!;
         public virtual DbSet<ProductoVendido> ProductoVendidos { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
         public virtual DbSet<Venta> Venta { get; set; } = null!;
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //saco porque ya configure en appsettings
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer("Server=AGUSTIN; Database=coderhouse; Trusted_Connection=True;");
-        //    }
-        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Producto>(entity =>
