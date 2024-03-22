@@ -68,26 +68,26 @@ namespace WebApi_Proyecto_Final.Controllers
             return Utils.ControllerHelper(result);
         }
 
-        [HttpPut]
+        [HttpPut("{username}/{password}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<APIResponse>> UpdateUsuario(UsuarioUpdateDto userUpdate)
+        public async Task<ActionResult<APIResponse>> UpdateUsuario([FromBody] UsuarioUpdateDto userUpdate, string username, string password)
         {
-            var result = await _service.Update(userUpdate);
+            var result = await _service.Update(userUpdate, username, password);
             return Utils.ControllerHelper(result);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{username}/{password}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<APIResponse>> DeleteUsuario(int id)
+        public async Task<ActionResult<APIResponse>> DeleteUsuario(string username, string password)
         {
-            var result = await _service.Delete(id);
+            var result = await _service.Delete(username, password);
             return Utils.ControllerHelper(result);
         }
     }

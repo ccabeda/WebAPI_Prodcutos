@@ -7,11 +7,8 @@ namespace WebApi_Proyecto_Final.UnitOfWork
     {
         private readonly AplicationDbContext _context;
         public IRepositoryProducto repositoryProducto {  get; }
-
         public IRepositoryProductoVendido repositoryproductoVendido { get; }
-
         public IRepositoryUsuario repositoryUsuario { get; }
-
         public IRepositoryVenta repositoryVenta { get; }
         public UnitOfWork(AplicationDbContext context, IRepositoryProducto _repositoryProducto, IRepositoryProductoVendido _repositoryProductoVendido, IRepositoryUsuario _repositoryUsuario, 
                           IRepositoryVenta _repositoryVenta)
@@ -22,8 +19,6 @@ namespace WebApi_Proyecto_Final.UnitOfWork
             repositoryUsuario = _repositoryUsuario;
             repositoryVenta = _repositoryVenta;
         }
-
-        public async Task Save() => await _context.SaveChangesAsync();
-        
+        public async Task Save() => await _context.SaveChangesAsync();  
     }
 }

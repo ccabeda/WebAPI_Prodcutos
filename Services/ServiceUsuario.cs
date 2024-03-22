@@ -75,6 +75,7 @@ namespace WebApi_Proyecto_Final.Services
                     return Utils.Utils.ConflictResponse(_apiResponse);
                 }
                 var user = _mapper.Map<Usuario>(userCreate);
+                user.Contraseña = Encrypt.Encrypt.EncryptPassword(user.Contraseña); //encryptamos
                 await _unitOfWork.repositoryUsuario.Create(user);
                 await _unitOfWork.Save();
                 _logger.LogError("!Usuario creado con exito¡");
@@ -86,14 +87,19 @@ namespace WebApi_Proyecto_Final.Services
             }
         }
 
-        public async Task<APIResponse> Update(UsuarioUpdateDto userUpdate)
+        public async Task<APIResponse> Update(UsuarioUpdateDto userUpdate, string username, string password)
         {
             try
             {
-                var user = await _unitOfWork.repositoryUsuario.GetById(userUpdate.Id); //verifico que el id ingresado este registrado en la db
+                var user = await _unitOfWork.repositoryUsuario.GetByName(username); //verifico que el id ingresado este registrado en la db
                 if (Utils.Utils.VerifyIfObjIsNull<Usuario>(user))
                 {
                     _logger.LogError("El usuario enviado no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
+                }
+                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
+                {
+                    _logger.LogError("Contraseña incorrecta");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 var registredName = await _unitOfWork.repositoryUsuario.GetByName(userUpdate.NombreUsuario); //si ya existe ese nombredeusuario no deja crear
@@ -109,9 +115,10 @@ namespace WebApi_Proyecto_Final.Services
                     return Utils.Utils.ConflictResponse(_apiResponse);
                 }
                 _mapper.Map(userUpdate, user);
+                user.Contraseña = Encrypt.Encrypt.EncryptPassword(user.Contraseña); //encriptamos
                 await _unitOfWork.repositoryUsuario.Update(user);
                 await _unitOfWork.Save();
-                Console.WriteLine("!El usuario de id " + userUpdate.Id + " fue actualizado con exito!");
+                Console.WriteLine("!El usuario " + username + " fue actualizado con exito!");
                 return Utils.Utils.OKResponse<UsuarioDto, Usuario>(_mapper, user, _apiResponse);
             }
             catch (Exception ex)
@@ -120,25 +127,30 @@ namespace WebApi_Proyecto_Final.Services
             }
         }
 
-        public async Task<APIResponse> Delete(int id)
+        public async Task<APIResponse> Delete(string username, string password)
         {
             try
             {
-                var user = await _unitOfWork.repositoryUsuario.GetById(id);
+                var user = await _unitOfWork.repositoryUsuario.GetByName(username);
                 if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-                    _logger.LogError("El id " + id + "no se encuentra registrado");
+                    _logger.LogError("El usuario " + username + "no se encuentra registrado");
+                    return Utils.Utils.BadRequestResponse(_apiResponse);
+                }
+                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
+                {
+                    _logger.LogError("Contraseña incorrecta");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 var listProducts = await _unitOfWork.repositoryProducto.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de producto
                                                                                               //en el service de usuario
-                if (!Utils.Utils.PreventDeletionIfRelatedProductExist(listProducts, id))
+                if (!Utils.Utils.PreventDeletionIfRelatedProductExist(listProducts, user.Id))
                 {
                     _logger.LogError("El Usuario no se puede eliminar porque hay un Producto que contiene como UsuarioId este usuario.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
                 var listSales = await _unitOfWork.repositoryVenta.GetAll(); //verificacion para no utilizar borrado de cascada, es una alternativa, que seria llamando al repository de venta
-                if (!Utils.Utils.PreventDeletionIfRelatedSalesExist(listSales, id))
+                if (!Utils.Utils.PreventDeletionIfRelatedSalesExist(listSales, user.Id))
                 {
                     _logger.LogError("El Usuario no se puede eliminar porque hay una Venta que contiene como UsuarioId este usuario.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
@@ -179,12 +191,10 @@ namespace WebApi_Proyecto_Final.Services
                 var user = await _unitOfWork.repositoryUsuario.GetByName(username);
                 if (Utils.Utils.VerifyIfObjIsNull(user))
                 {
-
                     _logger.LogError("Usuario incorrecto.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);
                 }
-
-                if (!Utils.Utils.VerifyPassword(user.Contraseña, password))
+                if (!Utils.Utils.VerifyPassword(password, user.Contraseña))
                 {
                     _logger.LogError("Contraseña incorrecta.");
                     return Utils.Utils.BadRequestResponse(_apiResponse);

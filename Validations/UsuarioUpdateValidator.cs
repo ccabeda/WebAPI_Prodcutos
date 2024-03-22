@@ -7,7 +7,6 @@ namespace WebApi_Proyecto_Final.Validations
     {
         public UsuarioUpdateValidator()
         {
-            RuleFor(u => u.Id).NotEqual(0).WithMessage("El id no puede ser 0");
             RuleFor(u => u.NombreUsuario).NotEmpty().WithMessage("El nombre de usuario no puede estar vacio.");
             RuleFor(u => u.Nombre).NotEmpty().WithMessage("El nombre no puede estar vacio.");
             RuleFor(u => u.Apellido).NotEmpty().WithMessage("El apellido no puede estar vacio.");

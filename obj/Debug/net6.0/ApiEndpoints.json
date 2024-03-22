@@ -676,113 +676,6 @@
   },
   {
     "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
-    "Method": "UpdateUsuario",
-    "RelativePath": "api/Usuario",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userUpdate",
-        "Type": "WebApi_Proyecto_Final.DTOs.UsuarioDto.UsuarioUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 409
-      },
-      {
-        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
-    "Method": "DeleteUsuario",
-    "RelativePath": "api/Usuario/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 400
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 409
-      },
-      {
-        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      },
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 500
-      }
-    ]
-  },
-  {
-    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
     "Method": "Login",
     "RelativePath": "api/Usuario/{user}/{password}",
     "HttpMethod": "GET",
@@ -849,6 +742,128 @@
           "text/json"
         ],
         "StatusCode": 400
+      },
+      {
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
+    "Method": "UpdateUsuario",
+    "RelativePath": "api/Usuario/{username}/{password}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userUpdate",
+        "Type": "WebApi_Proyecto_Final.DTOs.UsuarioDto.UsuarioUpdateDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
+      },
+      {
+        "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi_Proyecto_Final.Controllers.UsuarioController",
+    "Method": "DeleteUsuario",
+    "RelativePath": "api/Usuario/{username}/{password}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 409
       },
       {
         "Type": "WebApi_Proyecto_Final.Models.APIResponse.APIResponse",
