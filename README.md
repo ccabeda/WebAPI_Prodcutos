@@ -393,14 +393,22 @@ Crea un usuario.
 Modifica un usuario.
 
 ```http
-  PUT localhost:{su_puerto}/api/Usuario
+  PUT localhost:{su_puerto}/api/Usuario/{username}/{password}
 ```
 
 | Parametro | Tipo     | Descripción              |
 | :-------- | :------- | :------------------------- |
 | `Usuario` | `UsuarioUpdateDto` | **Requerido** por body.  |
 
-- URL: https://localhost:7104/api/Producto
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| `string` | `username` | **Requerido** por body.  |
+
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| `string` | `password` | **Requerido** por body.  |
+
+- URL: https://localhost:7104/api/Usuario/{username}/{password}
 - Metodo: PUT
 - Parametros:
   Datos personales en formato Json (body)
@@ -412,14 +420,18 @@ Modifica un usuario.
 Elimina el usuario.
 
 ```http
-  DELETE localhost:{su_puerto}/api/Usuario/{id}
+  DELETE localhost:{su_puerto}/api/Usuario/{username}/{password}
 ```
 
-| Parametro | Tipo     | Descripción                     |
-| :-------- | :------- | :-------------------------------- |
-| `Id`      | `int`    | **Requerido** por URL.  |
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| `string` | `username` | **Requerido** por body.  |
 
-- URL: https://localhost:7104/api/Usuario/{id}
+| Parametro | Tipo     | Descripción              |
+| :-------- | :------- | :------------------------- |
+| `string` | `password` | **Requerido** por body.  |
+
+- URL: https://localhost:7104/api/Usuario/{username}/{password}
 - Metodo DELETE
 - Parametros:
   Id (URL)
